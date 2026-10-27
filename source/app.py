@@ -4,8 +4,8 @@ from grafo.grafo_principal import crear_estado_inicial, crear_grafo
 
 NOMBRE_VISIBLE_DE_AGENTE = {"buscador": "Buscador", "linaje": "Linaje", "detalle": "Detalle"}
 
-st.set_page_config(page_title="Catalogo de datos Sabora", page_icon="📊")
-st.title("Catalogo de datos Sabora")
+st.set_page_config(page_title="Data Discovery AI", page_icon="📊")
+st.title("Data Discovery AI")
 st.caption("Preguntame en que dashboard basarte, que vistas o tablas usar, de donde salen los datos "
            "o que significa una columna.")
 
