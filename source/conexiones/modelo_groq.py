@@ -4,11 +4,14 @@ from configuracion import GROQ_CLAVES, GROQ_MODELO_LIGERO, GROQ_MODELO_POTENTE
 
 # Pocos reintentos por clave: si una se quedo sin cuota del dia conviene pasar rapido a la siguiente
 CANTIDAD_DE_REINTENTOS = 2
+# Groq reserva el maximo de salida contra el limite por minuto, sin tope una sola llamada lo supera
+MAXIMO_TOKENS_DE_SALIDA = 4000
 
 
 def crear_modelos(nombre_modelo):
     # Un modelo por cada api key de Groq, cada clave tiene su propia cuota
-    return [ChatGroq(model=nombre_modelo, api_key=clave, temperature=0, max_retries=CANTIDAD_DE_REINTENTOS)
+    return [ChatGroq(model=nombre_modelo, api_key=clave, temperature=0, max_retries=CANTIDAD_DE_REINTENTOS,
+                     max_tokens=MAXIMO_TOKENS_DE_SALIDA)
             for clave in GROQ_CLAVES]
 
 

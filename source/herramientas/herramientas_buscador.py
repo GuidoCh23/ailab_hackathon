@@ -9,8 +9,14 @@ from herramientas.catalogo_cargado import cargar_catalogo
 # Debajo de esta similitud el resultado casi nunca tiene relacion con la pregunta
 UMBRAL_DE_SIMILITUD = 0.6
 CANTIDAD_DE_RESULTADOS = 5
-# Los dashboards publicados y las vistas prod son lo oficial
-CAPAS_OFICIALES = ["prod", "powerbi"]
+# Que significa cada capa para quien usa el dato, solo adhoc es no oficial
+ESTADO_POR_CAPA = {
+    "powerbi": "oficial, dashboard publicado",
+    "prod": "oficial, vista para reportes",
+    "staging": "vista intermedia, valida para su tema",
+    "raw": "datos de origen",
+    "adhoc": "no oficial, creada por un analista",
+}
 # Ajuste al ordenar: las vistas oficiales suben y las de analistas bajan un poco
 AJUSTE_POR_CAPA = {"prod": 0.03, "adhoc": -0.02}
 
@@ -33,7 +39,7 @@ def buscar_por_significado(nombre_coleccion, consulta):
             "nombre": encontrado["nombre"],
             "tipo": encontrado["tipo"],
             "capa": encontrado["capa"],
-            "es_oficial": encontrado["capa"] in CAPAS_OFICIALES,
+            "estado": ESTADO_POR_CAPA.get(encontrado["capa"], ""),
             "similitud": encontrado["similitud"],
             "puntaje": round(encontrado["similitud"] + AJUSTE_POR_CAPA.get(encontrado["capa"], 0), 3),
             "descripcion": recurso.get("descripcion", ""),

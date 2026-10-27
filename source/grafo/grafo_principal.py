@@ -22,6 +22,7 @@ Eres el orquestador de un chatbot que ayuda a encontrar dashboards, vistas y tab
 Sabora, y a entender de donde salen sus datos. Decides que agente trabaja en cada paso.
 Regla principal: si el usuario quiere hacer, buscar o basarse en un dashboard o reporte, el primer paso
 es siempre buscador, aunque la pregunta mencione valores como presupuesto, un pais o un canal.
+Lo mismo si pregunta donde estan los datos de un tema (best estimate, stock, ventas de un pais): eso es buscador.
 - buscador: encuentra dashboards, vistas o tablas por tema o por nombre. Empieza por aqui cuando el usuario
   quiere hacer un dashboard o busca datos sobre algo y aun no se sabe que recurso es.
 - linaje: da la ficha de un recurso, de que lee, quien lo usa y su SQL. Usalo para preguntas de impacto
@@ -36,7 +37,9 @@ Si te indican valores de categorias mencionados en la pregunta y el usuario preg
 busca algo especifico: usa detalle. Si solo los menciona como contexto, son una pista y nada mas.
 Si la pregunta tiene varias partes, encarga cada parte al agente que corresponde antes de responder.
 Da al agente una instruccion concreta, con los nombres exactos de recursos que ya se conocen.
-Los agentes no hablan con el usuario: si falta un dato del usuario, elige responder y que la respuesta lo pida.
+Los agentes no hablan con el usuario: nunca les pidas que pregunten algo al usuario. Si falta el nombre de un
+recurso, encarga al agente que lo busque. Solo si de verdad no se puede buscar, elige responder y que la respuesta lo pida.
+Si un agente no encontro algo, prueba con otro agente antes de responder que no existe.
 No repitas una tarea que un agente ya hizo.
 """
 
@@ -46,14 +49,25 @@ usando solo lo que encontraron los agentes. Reglas:
 - Si quiere hacer un dashboard: di en que dashboard existente basarse, que muestra, que vistas y tablas usa
   y donde estan. Nombra los dashboards por su titulo, como Resumen Ejecutivo.
 - Los dashboards de Power BI (capa powerbi) y las vistas de la capa prod son los oficiales. Recomiendalos primero.
-  Si mencionas uno de adhoc, avisa que no es oficial.
+  Las vistas staging son intermedias y las tablas raw son datos de origen: no las llames no oficiales.
+  Solo la capa adhoc es no oficial: si mencionas uno de adhoc, avisalo. No listes recursos que no vienen al caso.
+- Si desaconsejas un recurso, explica el motivo con lo que dice su descripcion (por ejemplo errores de calculo
+  o datos desactualizados) y nombra la alternativa oficial si los agentes la encontraron.
 - En linaje distingue lo que usa un recurso directamente de lo que usa a traves de otro recurso.
   Si preguntan que se afecta o quien usa algo, lista todos los recursos por nombre, tambien los no oficiales.
 - Escribe las vistas y tablas con su capa, como prod.v_revenue_snapshot, y listalas siempre por nombre.
-  Lo unico que no escribes son los links: se agregan solos al final de la respuesta.
+  Lo unico que no escribes son los links ni marcadores como [Enlace]: se agregan solos al final de la respuesta.
 - Nombres de recursos, columnas, valores y filtros: escribelos exactamente como aparecen en los resultados.
   Nunca escribas un filtro con una columna o un valor que no aparezca literalmente en los resultados.
 - Si una parte de la pregunta no fue investigada o no se encontro, dilo con honestidad en vez de suponer.
+- No afirmes que un recurso usa o no usa a otro si ningun agente consulto su linaje con exito, y no hables de
+  quien usa un recurso si no lo preguntaron. Que un agente no encuentre un nombre no significa que nadie lo use.
+- Nunca digas que una tabla raw o una vista staging no es oficial: raw son datos de origen, staging son intermedias.
+- Si es un saludo o preguntan que puedes hacer, explica en pocas lineas que ayudas a: encontrar en que dashboard
+  basarse para un reporte nuevo y que datos usa, encontrar la vista o tabla correcta para un tema, ver de donde
+  salen los datos y que se afecta si cambia algo, y saber que significa una columna o con que valor filtrar.
+  Termina con dos o tres preguntas de ejemplo que usen nombres reales, como Resumen Ejecutivo,
+  prod.v_revenue_snapshot o raw.dim_entity. Nunca inventes nombres de recursos.
 """
 
 
@@ -140,6 +154,7 @@ def esta_mencionado(recurso, respuesta):
 
 def agregar_links(respuesta):
     # Los links los pone el codigo, copiados por el modelo se pueden romper
+    respuesta = re.sub(r"\s*\[(enlace|link)[^\]]*\](\([^)]*\))?", "", respuesta, flags=re.IGNORECASE)
     mencionados = [recurso for recurso in cargar_catalogo().values() if esta_mencionado(recurso, respuesta)]
     if not mencionados:
         return respuesta
