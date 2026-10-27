@@ -18,16 +18,25 @@ def recorrer_niveles(identificador_inicial, buscar_siguientes):
     visitados = {identificador_inicial}
     while actuales:
         siguientes = []
+        # Para cada recurso nuevo se guarda por cuales recursos del nivel anterior se llega
+        a_traves_de = {}
         for identificador in actuales:
             for siguiente in buscar_siguientes(identificador):
                 if siguiente not in visitados:
                     visitados.add(siguiente)
                     siguientes.append(siguiente)
+                if siguiente in siguientes:
+                    a_traves_de.setdefault(siguiente, []).append(identificador)
         if siguientes:
             # El primer nivel es uso directo, los siguientes pasan por otros recursos
-            relacion = "directa" if not niveles else "indirecta, a traves de los recursos del nivel anterior"
-            niveles.append({"nivel": len(niveles) + 1, "relacion": relacion,
-                            "recursos": [resumir_recurso(item) for item in siguientes]})
+            relacion = "directa" if not niveles else "indirecta"
+            recursos = []
+            for item in siguientes:
+                resumen = resumir_recurso(item)
+                if niveles:
+                    resumen["a_traves_de"] = [resumir_recurso(padre)["nombre"] for padre in a_traves_de[item]]
+                recursos.append(resumen)
+            niveles.append({"nivel": len(niveles) + 1, "relacion": relacion, "recursos": recursos})
         actuales = siguientes
     return niveles
 

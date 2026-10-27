@@ -11,11 +11,14 @@ from agentes.agente_linaje import crear_agente_linaje
 from conexiones.modelo_groq import crear_modelos_potentes, unir_con_respaldo
 from grafo.estado import EstadoDelChat
 from herramientas.catalogo_cargado import cargar_catalogo
-from herramientas.herramientas_detalle import detectar_valores_mencionados
+from herramientas.herramientas_detalle import detectar_valores_mencionados, normalizar
 
 MAXIMO_DE_PASOS = 8
 CANTIDAD_DE_MENSAJES_DE_HISTORIAL = 6
 MAXIMO_VECES_POR_AGENTE = 2
+# Palabras que indican una pregunta de origen o de impacto de los datos
+PALABRAS_DE_LINAJE = ["usan", "usa ", "utiliza", "afecta", "depende", "de donde sale", "origen", "alimenta",
+                      "linaje", "si cambio", "si modifico", "consume"]
 
 INSTRUCCIONES_ORQUESTADOR = """
 Eres el orquestador de un chatbot que ayuda a encontrar dashboards, vistas y tablas de datos de la empresa
@@ -68,7 +71,7 @@ usando solo lo que encontraron los agentes. Reglas:
   basarse para un reporte nuevo y que datos usa, encontrar la vista o tabla correcta para un tema, ver de donde
   salen los datos y que se afecta si cambia algo, y saber que significa una columna o con que valor filtrar.
   Solo en ese caso termina con dos o tres preguntas de ejemplo que usen nombres reales, como Resumen Ejecutivo,
-  prod.v_revenue_snapshot o raw.dim_entity. Nunca inventes nombres de recursos.
+  prod.v_revenue_snapshot o raw.dim_entity. Nunca inventes nombres de recursos ni de columnas.
 """
 
 
@@ -99,11 +102,21 @@ def ultima_pregunta(mensajes):
     return next((texto for rol, texto in reversed(mensajes) if rol == "usuario"), "")
 
 
+def es_pregunta_de_linaje(pregunta):
+    texto = normalizar(pregunta)
+    return any(palabra in texto for palabra in PALABRAS_DE_LINAJE)
+
+
 def armar_pistas(estado):
-    valores_mencionados = detectar_valores_mencionados(ultima_pregunta(estado["mensajes"]))
-    if not valores_mencionados:
-        return ""
-    return "\n\nValores de categorias mencionados en la pregunta:\n" + "\n".join(valores_mencionados)
+    pregunta = ultima_pregunta(estado["mensajes"])
+    pistas = ""
+    if es_pregunta_de_linaje(pregunta):
+        pistas += ("\n\nEs una pregunta de linaje o impacto: usa linaje, que distingue el uso directo del uso "
+                   "a traves de otros recursos. Si falta el nombre del recurso, que lo busque con el que dio el usuario.")
+    valores_mencionados = detectar_valores_mencionados(pregunta)
+    if valores_mencionados:
+        pistas += "\n\nValores de categorias mencionados en la pregunta:\n" + "\n".join(valores_mencionados)
+    return pistas
 
 
 def crear_nodo_orquestador():
@@ -153,6 +166,21 @@ def esta_mencionado(recurso, respuesta):
     return any(re.search(rf"(?<![\w.]){re.escape(nombre)}(?!\w)", respuesta, re.IGNORECASE) for nombre in nombres)
 
 
+def corregir_capas(respuesta):
+    # Si el modelo escribe un objeto real con la capa equivocada, se pone su nombre completo correcto
+    nombre_por_objeto = {}
+    for recurso in cargar_catalogo().values():
+        objeto = recurso["nombre"].split(".")[-1]
+        nombre_por_objeto.setdefault(objeto, []).append(recurso["nombre"])
+
+    def reemplazar(coincidencia):
+        candidatos = nombre_por_objeto.get(coincidencia.group(2), [])
+        if coincidencia.group(0) in candidatos or len(candidatos) != 1:
+            return coincidencia.group(0)
+        return candidatos[0]
+    return re.sub(r"\b(raw|staging|prod|adhoc)\.(\w+)", reemplazar, respuesta)
+
+
 def agregar_links(respuesta):
     # Los links los pone el codigo, copiados por el modelo se pueden romper
     respuesta = re.sub(r"\s*\[(enlace|link)[^\]]*\](\([^)]*\))?", "", respuesta, flags=re.IGNORECASE)
@@ -173,7 +201,7 @@ def crear_nodo_redactor():
 
     def redactar(estado):
         respuesta = modelo.invoke([("system", INSTRUCCIONES_REDACTOR), ("user", armar_contexto(estado))])
-        return {"respuesta_final": agregar_links(respuesta.content)}
+        return {"respuesta_final": agregar_links(corregir_capas(respuesta.content))}
     return redactar
 
 
