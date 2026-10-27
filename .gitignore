@@ -1,0 +1,23 @@
+# Secretos
+.env
+credenciales/
+.streamlit/secrets.toml
+*.json.key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Fuera del repositorio: no los necesita la app
+dashboards/*.pbix
+Datos_dummy/
+documentos/
+CONVERSACION.md
+CONTENIDO_DATA.md
+.claude/

@@ -1,0 +1,11 @@
+streamlit
+groq
+google-cloud-bigquery
+python-dotenv
+pandas
+db-dtypes
+langgraph
+langchain
+langchain-groq
+langchain-google-genai
+chromadb
