@@ -14,6 +14,9 @@ GROQ_MODELO_LIGERO = os.getenv("GROQ_MODEL_LIGERO", "qwen/qwen3.8-27b")
 GROQ_MODELO_POTENTE = os.getenv("GROQ_MODEL_POTENTE", "openai/gpt-oss-120b")
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY_2 = os.getenv("GOOGLE_API_KEY_2")
+# Igual que en Groq, la segunda api key de Gemini se usa si la primera falla
+GOOGLE_CLAVES = [clave.strip() for clave in [GOOGLE_API_KEY, GOOGLE_API_KEY_2] if clave and clave.strip()]
 GEMINI_MODELO_EMBEDDING = os.getenv("GEMINI_EMBEDDING_MODEL", "gemini-embedding-001")
 
 GCP_PROYECTO = os.getenv("GCP_PROJECT_ID")

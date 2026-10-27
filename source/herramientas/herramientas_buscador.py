@@ -3,7 +3,7 @@ from functools import cache
 from langchain_core.tools import tool
 
 from catalogo.base_vectorial import buscar_en_coleccion
-from conexiones.modelo_embeddings import crear_modelo_embeddings
+from conexiones.modelo_embeddings import crear_modelos_embeddings
 from herramientas.catalogo_cargado import cargar_catalogo
 
 # Debajo de esta similitud el resultado casi nunca tiene relacion con la pregunta
@@ -22,13 +22,25 @@ AJUSTE_POR_CAPA = {"prod": 0.03, "adhoc": -0.02}
 
 
 @cache
-def obtener_modelo_embeddings():
-    return crear_modelo_embeddings()
+def obtener_modelos_embeddings():
+    return crear_modelos_embeddings()
+
+
+@cache
+def vectorizar_consulta(consulta):
+    # Si una api key de Gemini falla, por ejemplo sin cuota, se prueba con la siguiente
+    ultimo_error = None
+    for modelo_embeddings in obtener_modelos_embeddings():
+        try:
+            return modelo_embeddings.embed_query(consulta)
+        except Exception as error:
+            print(f"Error en Gemini, se prueba la siguiente api key: {str(error)[:200]}")
+            ultimo_error = error
+    raise ultimo_error
 
 
 def buscar_por_significado(nombre_coleccion, consulta):
-    vector_consulta = obtener_modelo_embeddings().embed_query(consulta)
-    encontrados = buscar_en_coleccion(nombre_coleccion, vector_consulta, CANTIDAD_DE_RESULTADOS)
+    encontrados = buscar_en_coleccion(nombre_coleccion, vectorizar_consulta(consulta), CANTIDAD_DE_RESULTADOS)
     catalogo = cargar_catalogo()
     resultados = []
     for encontrado in encontrados:
