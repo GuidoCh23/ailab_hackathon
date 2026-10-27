@@ -86,3 +86,19 @@ def buscar_por_nombre(texto: str):
         for recurso in cargar_catalogo().values()
         if texto in recurso["nombre"].lower() or texto in recurso.get("titulo", "").lower()]
     return resultados if resultados else f"Ningun recurso tiene {texto} en su nombre."
+
+
+@tool
+def buscar_por_sistema_de_origen(sistema: str):
+    """Lista las tablas que vienen de un sistema o archivo de origen, por ejemplo ERP, MDM o PLANNING_TOOL.
+    Usala cuando preguntan de donde vienen los datos o que tablas carga un sistema."""
+    texto = sistema.strip().lower()
+    resultados = [
+        {"nombre": recurso["nombre"], "sistemas_origen": recurso["sistemas_origen"], "ultima_carga": recurso["ultima_carga"]}
+        for recurso in cargar_catalogo().values()
+        if recurso["tipo"] == "tabla" and any(texto in origen.lower() for origen in recurso.get("sistemas_origen", []))]
+    if resultados:
+        return resultados
+    # Si no coincide, se muestran todos los origenes para que el agente elija
+    todos = sorted({origen for recurso in cargar_catalogo().values() for origen in recurso.get("sistemas_origen", [])})
+    return f"Ninguna tabla viene de {sistema}. Los origenes que existen son: {', '.join(todos)}."
