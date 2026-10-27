@@ -10,6 +10,7 @@ from agentes.agente_detalle import crear_agente_detalle
 from agentes.agente_linaje import crear_agente_linaje
 from conexiones.modelo_groq import crear_modelos_potentes, unir_con_respaldo
 from grafo.estado import EstadoDelChat
+from grafo.verificador_columnas import encontrar_columnas_inventadas, listar_columnas_de_recursos
 from herramientas.catalogo_cargado import cargar_catalogo
 from herramientas.herramientas_detalle import detectar_valores_mencionados, normalizar
 
@@ -202,8 +203,18 @@ def crear_nodo_redactor():
     modelo = unir_con_respaldo(crear_modelos_potentes())
 
     def redactar(estado):
-        respuesta = modelo.invoke([("system", INSTRUCCIONES_REDACTOR), ("user", armar_contexto(estado))])
-        return {"respuesta_final": agregar_links(corregir_capas(respuesta.content))}
+        contexto = armar_contexto(estado)
+        mensajes = [("system", INSTRUCCIONES_REDACTOR), ("user", contexto + listar_columnas_de_recursos(contexto))]
+        respuesta = modelo.invoke(mensajes).content
+        # Si la respuesta usa columnas o valores que no existen, se le pide al modelo que la corrija una vez
+        problemas = encontrar_columnas_inventadas(respuesta)
+        if problemas:
+            print("Columnas a corregir:", problemas)
+            mensajes += [("assistant", respuesta),
+                         ("user", "Corrige la respuesta: " + "; ".join(problemas) +
+                          ". Usa solo columnas y valores reales, o quita ese filtro si no lo sabes.")]
+            respuesta = modelo.invoke(mensajes).content
+        return {"respuesta_final": agregar_links(corregir_capas(respuesta))}
     return redactar
 
 
