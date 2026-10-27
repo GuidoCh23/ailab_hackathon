@@ -1,0 +1,2898 @@
+[
+  {
+    "id": "vista:adhoc.v_nr_mensual_bu",
+    "tipo": "vista",
+    "nombre": "adhoc.v_nr_mensual_bu",
+    "capa": "adhoc",
+    "descripcion_capa": "vistas creadas por analistas, no oficiales",
+    "ubicacion": "ailab-512816.adhoc.v_nr_mensual_bu",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sadhoc!3sv_nr_mensual_bu",
+    "columnas": [
+      {
+        "nombre": "bu",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "mes",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "net_revenue",
+        "tipo": "NUMERIC"
+      }
+    ],
+    "sql": "SELECT\n  e.level_02_description  AS bu,\n  t.year,\n  t.period                AS mes,\n  SUM(f.amount_lc)        AS net_revenue\nFROM `ailab-512816.raw.fct_revenue` f\nJOIN `ailab-512816.raw.dim_time` t ON t.dimid_time = f.dimid_time\nJOIN `ailab-512816.raw.dim_entity` e ON e.dimid_entity = f.dimid_entity\nJOIN `ailab-512816.raw.dim_account` a ON a.dimid_account = f.dimid_account_code\nWHERE a.level_02 = 'NR'\nGROUP BY e.level_02_description, t.year, t.period",
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_time",
+      "tabla:raw.fct_revenue"
+    ]
+  },
+  {
+    "id": "vista:adhoc.v_revenue_snapshot_bkp",
+    "tipo": "vista",
+    "nombre": "adhoc.v_revenue_snapshot_bkp",
+    "capa": "adhoc",
+    "descripcion_capa": "vistas creadas por analistas, no oficiales",
+    "ubicacion": "ailab-512816.adhoc.v_revenue_snapshot_bkp",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sadhoc!3sv_revenue_snapshot_bkp",
+    "columnas": [
+      {
+        "nombre": "account_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "account_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_account_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_time",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "scenario_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "scenario_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_scenario_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "entity_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "entity_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_entity",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "sku_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "sku_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_product_sku",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "customer_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "customer_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_customer_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "channel_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "channel_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_channel_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "audit_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "audit_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_audit_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "uom",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "amount_lc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_rc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_ac",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_py",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_cf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_pf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfjun",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfsep",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "area",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "snapshot_version",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "snapshot_cycle",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "snapshot_date",
+        "tipo": "DATE"
+      }
+    ],
+    "sql": "SELECT\n  a.dimid_account_nk             AS account_id,\n  a.account_description,\n  f.dimid_account_code,\n  t.period                       AS month,\n  t.year,\n  f.dimid_time,\n  s.dimid_scenario_code_nk       AS scenario_id,\n  s.scenario_description,\n  f.dimid_scenario_code,\n  e.dimid_entity_nk              AS entity_id,\n  e.entity_description,\n  f.dimid_entity,\n  p.dimid_product_sku_nk         AS sku_id,\n  p.sku_desc,\n  f.dimid_product_sku,\n  c.dimid_customer_id_nk         AS customer_id,\n  c.customer_description,\n  f.dimid_customer_id,\n  ch.dimid_channel_code_nk       AS channel_id,\n  ch.description                 AS channel_description,\n  f.dimid_channel_code           AS dimid_channel_id,\n  au.dimid_audit_id_nk           AS audit_id,\n  au.audit_description,\n  f.dimid_audit_id,\n  d.UOM                          AS uom,\n  f.amount_lc, f.amount_rc, f.amount_ac, f.amount_py,\n  f.amount_cf, f.amount_pf, f.amount_mfjun, f.amount_mfsep,\n  f.Area                         AS area,\n  'MV2026-06'                    AS snapshot_version,\n  '2026-06'                      AS snapshot_cycle,\n  DATE '2026-07-06'              AS snapshot_date\nFROM `ailab-512816.raw.fct_revenue` f\nLEFT JOIN `ailab-512816.raw.dim_account` a  ON a.dimid_account = f.dimid_account_code\nLEFT JOIN `ailab-512816.raw.dim_time` t  ON t.dimid_time = f.dimid_time\nLEFT JOIN `ailab-512816.raw.dim_scenario` s  ON s.dimid_scenario_code = f.dimid_scenario_code\nLEFT JOIN `ailab-512816.raw.dim_entity` e  ON e.dimid_entity = f.dimid_entity\nLEFT JOIN `ailab-512816.raw.dim_product_hierarchy` p  ON p.dimid_product_sku = f.dimid_product_sku\nLEFT JOIN `ailab-512816.raw.dim_customer` c  ON c.dimid_customer_id = f.dimid_customer_id\nLEFT JOIN `ailab-512816.raw.dim_channel` ch ON ch.dimid_channel_code = f.dimid_channel_code\nLEFT JOIN `ailab-512816.raw.dim_audit_trail` au ON au.dimid_audit_id = f.dimid_audit_id\nLEFT JOIN `ailab-512816.raw.dim_document` d  ON d.dimid_document = f.dimid_document",
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_audit_trail",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_customer",
+      "tabla:raw.dim_document",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_scenario",
+      "tabla:raw.dim_time",
+      "tabla:raw.fct_revenue"
+    ]
+  },
+  {
+    "id": "vista:adhoc.v_venta_neta_peru_tmp",
+    "tipo": "vista",
+    "nombre": "adhoc.v_venta_neta_peru_tmp",
+    "capa": "adhoc",
+    "descripcion_capa": "vistas creadas por analistas, no oficiales",
+    "ubicacion": "ailab-512816.adhoc.v_venta_neta_peru_tmp",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sadhoc!3sv_venta_neta_peru_tmp",
+    "columnas": [
+      {
+        "nombre": "year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "mes",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "venta_neta_pen",
+        "tipo": "NUMERIC"
+      }
+    ],
+    "sql": "SELECT\n  t.year,\n  t.period                AS mes,\n  SUM(f.amount_lc)        AS venta_neta_pen\nFROM `ailab-512816.raw.fct_revenue` f\nJOIN `ailab-512816.raw.dim_time` t ON t.dimid_time = f.dimid_time\nJOIN `ailab-512816.raw.dim_entity` e ON e.dimid_entity = f.dimid_entity\nJOIN `ailab-512816.raw.dim_account` a ON a.dimid_account = f.dimid_account_code\nWHERE e.dimid_entity_nk = 'PE01'\n  AND f.dimid_scenario_code = 1\n  AND a.level_02 = 'NR'\nGROUP BY t.year, t.period",
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_time",
+      "tabla:raw.fct_revenue"
+    ]
+  },
+  {
+    "id": "vista:prod.v_revenue_snapshot",
+    "tipo": "vista",
+    "nombre": "prod.v_revenue_snapshot",
+    "capa": "prod",
+    "descripcion_capa": "vistas oficiales que consumen los reportes",
+    "ubicacion": "ailab-512816.prod.v_revenue_snapshot",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sprod!3sv_revenue_snapshot",
+    "columnas": [
+      {
+        "nombre": "account_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "account_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_account_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_time",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "scenario_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "scenario_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_scenario_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "entity_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "entity_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_entity",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "sku_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "sku_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_product_sku",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "customer_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "customer_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_customer_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "channel_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "channel_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_channel_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "audit_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "audit_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_audit_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "promo_nonpromo_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "promo_nonpromo_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_prm_nprm_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "base_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "base_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "dimid_base_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "uom",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "amount_lc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_rc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_ac",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_py",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_cf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_pf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfjun",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfsep",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "area",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "snapshot_version",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "snapshot_cycle",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "snapshot_date",
+        "tipo": "DATE"
+      }
+    ],
+    "sql": "SELECT\n  a.dimid_account_nk             AS account_id,\n  a.account_description,\n  f.dimid_account_code,\n  t.period                       AS month,\n  t.year,\n  f.dimid_time,\n  s.dimid_scenario_code_nk       AS scenario_id,\n  s.scenario_description,\n  f.dimid_scenario_code,\n  e.dimid_entity_nk              AS entity_id,\n  e.entity_description,\n  f.dimid_entity,\n  p.dimid_product_sku_nk         AS sku_id,\n  p.sku_desc,\n  f.dimid_product_sku,\n  c.dimid_customer_id_nk         AS customer_id,\n  c.customer_description,\n  f.dimid_customer_id,\n  ch.dimid_channel_code_nk       AS channel_id,\n  ch.description                 AS channel_description,\n  f.dimid_channel_code           AS dimid_channel_id,\n  au.dimid_audit_id_nk           AS audit_id,\n  au.audit_description,\n  f.dimid_audit_id,\n  pr.dimid_prm_nprm_id_nk        AS promo_nonpromo_id,\n  pr.description                 AS promo_nonpromo_description,\n  f.dimid_prm_nprm_id,\n  b.dimid_base_id_nk             AS base_id,\n  b.description                  AS base_description,\n  f.dimid_base_id,\n  d.UOM                          AS uom,\n  f.amount_lc, f.amount_rc, f.amount_ac, f.amount_py,\n  f.amount_cf, f.amount_pf, f.amount_mfjun, f.amount_mfsep,\n  f.Area                         AS area,\n  'MV2026-09'                    AS snapshot_version,\n  '2026-09'                      AS snapshot_cycle,\n  DATE '2026-10-05'              AS snapshot_date\nFROM `ailab-512816.raw.fct_revenue` f\nLEFT JOIN `ailab-512816.raw.dim_account` a  ON a.dimid_account = f.dimid_account_code\nLEFT JOIN `ailab-512816.raw.dim_time` t  ON t.dimid_time = f.dimid_time\nLEFT JOIN `ailab-512816.raw.dim_scenario` s  ON s.dimid_scenario_code = f.dimid_scenario_code\nLEFT JOIN `ailab-512816.raw.dim_entity` e  ON e.dimid_entity = f.dimid_entity\nLEFT JOIN `ailab-512816.raw.dim_product_hierarchy` p  ON p.dimid_product_sku = f.dimid_product_sku\nLEFT JOIN `ailab-512816.raw.dim_customer` c  ON c.dimid_customer_id = f.dimid_customer_id\nLEFT JOIN `ailab-512816.raw.dim_channel` ch ON ch.dimid_channel_code = f.dimid_channel_code\nLEFT JOIN `ailab-512816.raw.dim_audit_trail` au ON au.dimid_audit_id = f.dimid_audit_id\nLEFT JOIN `ailab-512816.raw.dim_promo` pr ON pr.dimid_prm_nprm_id = f.dimid_prm_nprm_id\nLEFT JOIN `ailab-512816.raw.dim_base` b  ON b.dimid_base_id = f.dimid_base_id\nLEFT JOIN `ailab-512816.raw.dim_document` d  ON d.dimid_document = f.dimid_document",
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_audit_trail",
+      "tabla:raw.dim_base",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_customer",
+      "tabla:raw.dim_document",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_promo",
+      "tabla:raw.dim_scenario",
+      "tabla:raw.dim_time",
+      "tabla:raw.fct_revenue"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_account",
+    "tipo": "tabla",
+    "nombre": "raw.dim_account",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_account",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_account",
+    "columnas": [
+      {
+        "nombre": "dimid_account",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_account_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "account_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "parent",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "account_type",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01_accounttype",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02_accounttype",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03_accounttype",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04_accounttype",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_05",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_05_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_05_accounttype",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_06",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_06_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_06_accounttype",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "BQ_INGEST_TIMESTAMP",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "UUID",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 9,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "MDM"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_audit_trail",
+    "tipo": "tabla",
+    "nombre": "raw.dim_audit_trail",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_audit_trail",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_audit_trail",
+    "columnas": [
+      {
+        "nombre": "dimid_audit_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_audit_id_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "audit_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level1",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level1_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level2",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level2_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level3",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level3_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level4",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level4_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "flag_costo",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "flag_ajuste",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "BQ_INGEST_TIMESTAMP",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "SRC_FILENAME",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "UUID",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 6,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "audit_trail_20261005.csv"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_base",
+    "tipo": "tabla",
+    "nombre": "raw.dim_base",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_base",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_base",
+    "columnas": [
+      {
+        "nombre": "dimid_base_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_base_id_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "order_seq",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 4,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "MDM"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_channel",
+    "tipo": "tabla",
+    "nombre": "raw.dim_channel",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_channel",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_channel",
+    "columnas": [
+      {
+        "nombre": "dimid_channel_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_channel_code_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Parent",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01_aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02_aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03_aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04_aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 11,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "MDM"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_customer",
+    "tipo": "tabla",
+    "nombre": "raw.dim_customer",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_customer",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_customer",
+    "columnas": [
+      {
+        "nombre": "dimid_customer_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_customer_id_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "customer_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level1",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level1_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level2",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level2_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level3",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level3_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level4",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level4_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level5",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level5_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "BQ_INGEST_TIMESTAMP",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "SRC_FILENAME",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "UUID",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 85,
+    "ultima_carga": "2026-08-01 04:45:00+00",
+    "sistemas_origen": [
+      "clientes_maestro_20260801.csv"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_document",
+    "tipo": "tabla",
+    "nombre": "raw.dim_document",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_document",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_document",
+    "columnas": [
+      {
+        "nombre": "dimid_document",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "UOM",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 3,
+    "ultima_carga": null,
+    "sistemas_origen": []
+  },
+  {
+    "id": "tabla:raw.dim_entity",
+    "tipo": "tabla",
+    "nombre": "raw.dim_entity",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_entity",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_entity",
+    "columnas": [
+      {
+        "nombre": "dimid_entity",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_entity_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "entity_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "planning_entity_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "planning_entity_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "allocation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "parent",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_04_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_05",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_05_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "tech_hierarchy",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "currency",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "row_source",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "region",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "BQ_INGEST_TIMESTAMP",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "UUID",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 22,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "MDM"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_product_hierarchy",
+    "tipo": "tabla",
+    "nombre": "raw.dim_product_hierarchy",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_product_hierarchy",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_product_hierarchy",
+    "columnas": [
+      {
+        "nombre": "dimid_product_sku",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_product_sku_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "sku_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "familia_formato",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "familia_formato_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "sub_brand",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "subbrand_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "marca",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "marca_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "marca_paraguas",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "marca_paraguas_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "segment_code",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "segmentcode_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "sub_category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "subcategory_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "category_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "category_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "categoryid_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "groupid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "groupid_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "top_level",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "toplevel_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "jerarquia_local_id",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "jerarquia_local_desc",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "BQ_INGEST_TIMESTAMP",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "SRC_FILENAME",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "UUID",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 62,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "producto_maestro_20261005.csv"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_promo",
+    "tipo": "tabla",
+    "nombre": "raw.dim_promo",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_promo",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_promo",
+    "columnas": [
+      {
+        "nombre": "dimid_prm_nprm_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_prm_nprm_id_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 3,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "MDM"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_scenario",
+    "tipo": "tabla",
+    "nombre": "raw.dim_scenario",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_scenario",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_scenario",
+    "columnas": [
+      {
+        "nombre": "dimid_scenario_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_scenario_code_nk",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "scenario_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "flag_real",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "flag_plan",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "parent",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_01_aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_02_aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03_description",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level_03_aggregation",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "level",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 6,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "PLANNING_TOOL"
+    ]
+  },
+  {
+    "id": "tabla:raw.dim_time",
+    "tipo": "tabla",
+    "nombre": "raw.dim_time",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.dim_time",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sdim_time",
+    "columnas": [
+      {
+        "nombre": "dimid_time",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "period",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 24,
+    "ultima_carga": "2026-10-05 05:10:00+00",
+    "sistemas_origen": [
+      "ERP"
+    ]
+  },
+  {
+    "id": "tabla:raw.fct_revenue",
+    "tipo": "tabla",
+    "nombre": "raw.fct_revenue",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.fct_revenue",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sfct_revenue",
+    "columnas": [
+      {
+        "nombre": "dimid_account_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_scenario_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_time",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_entity",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_product_sku",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_customer_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_channel_code",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_audit_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_prm_nprm_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_document",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "dimid_base_id",
+        "tipo": "INT64"
+      },
+      {
+        "nombre": "amount_lc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_rc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_ac",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_py",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_cf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_pf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfjun",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfsep",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "bq_ingest_timestamp",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Area",
+        "tipo": "STRING"
+      }
+    ],
+    "cantidad_filas": 73042,
+    "ultima_carga": "2026-10-09 10:00:00+00",
+    "sistemas_origen": [
+      "ERP",
+      "PLANNING_TOOL"
+    ]
+  },
+  {
+    "id": "tabla:raw.manual_be_hq_latam",
+    "tipo": "tabla",
+    "nombre": "raw.manual_be_hq_latam",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.manual_be_hq_latam",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3smanual_be_hq_latam",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "cantidad_filas": 2016,
+    "ultima_carga": "2026-09-25 14:22:10+00",
+    "sistemas_origen": []
+  },
+  {
+    "id": "tabla:raw.stock_mv_si_so",
+    "tipo": "tabla",
+    "nombre": "raw.stock_mv_si_so",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.stock_mv_si_so",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sstock_mv_si_so",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "cantidad_filas": 2160,
+    "ultima_carga": "2026-10-07 08:03:00+00",
+    "sistemas_origen": []
+  },
+  {
+    "id": "tabla:raw.stock_os_si_so",
+    "tipo": "tabla",
+    "nombre": "raw.stock_os_si_so",
+    "capa": "raw",
+    "descripcion_capa": "datos tal como llegan de los sistemas y archivos manuales",
+    "ubicacion": "ailab-512816.raw.stock_os_si_so",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sraw!3sstock_os_si_so",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "JF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "cantidad_filas": 4320,
+    "ultima_carga": "2026-10-07 08:03:00+00",
+    "sistemas_origen": []
+  },
+  {
+    "id": "vista:staging.v_manual_be_andina_ca",
+    "tipo": "vista",
+    "nombre": "staging.v_manual_be_andina_ca",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_manual_be_andina_ca",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_manual_be_andina_ca",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.manual_be_hq_latam` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'WACAM')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.manual_be_hq_latam"
+    ]
+  },
+  {
+    "id": "vista:staging.v_manual_be_brasil",
+    "tipo": "vista",
+    "nombre": "staging.v_manual_be_brasil",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_manual_be_brasil",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_manual_be_brasil",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.manual_be_hq_latam` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'BRAZIL')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.manual_be_hq_latam"
+    ]
+  },
+  {
+    "id": "vista:staging.v_manual_be_cono_sur",
+    "tipo": "vista",
+    "nombre": "staging.v_manual_be_cono_sur",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_manual_be_cono_sur",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_manual_be_cono_sur",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.manual_be_hq_latam` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'SOCO')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.manual_be_hq_latam"
+    ]
+  },
+  {
+    "id": "vista:staging.v_manual_be_mexico",
+    "tipo": "vista",
+    "nombre": "staging.v_manual_be_mexico",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_manual_be_mexico",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_manual_be_mexico",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.manual_be_hq_latam` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'MEXICO')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.manual_be_hq_latam"
+    ]
+  },
+  {
+    "id": "vista:staging.v_revenue_model",
+    "tipo": "vista",
+    "nombre": "staging.v_revenue_model",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_revenue_model",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_revenue_model",
+    "columnas": [
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "version",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "date",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "product",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "customer",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "channel",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "audit_trail",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "prm",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uom",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "base",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "amount_lc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_rc",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_ac",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_py",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_cf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_pf",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfjun",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "amount_mfsep",
+        "tipo": "NUMERIC"
+      },
+      {
+        "nombre": "source_system",
+        "tipo": "STRING"
+      }
+    ],
+    "sql": "SELECT\n  f.bq_ingest_timestamp           AS bq_ingest_date,\n  f.uuid,\n  a.dimid_account_nk              AS account,\n  s.dimid_scenario_code_nk        AS version,\n  CAST(f.dimid_time AS STRING)    AS `date`,\n  e.dimid_entity_nk               AS entity,\n  p.dimid_product_sku_nk          AS product,\n  c.dimid_customer_id_nk          AS customer,\n  ch.dimid_channel_code_nk        AS channel,\n  au.dimid_audit_id_nk            AS audit_trail,\n  pr.dimid_prm_nprm_id_nk         AS prm,\n  d.UOM                           AS uom,\n  b.dimid_base_id_nk              AS base,\n  f.amount_lc, f.amount_rc, f.amount_ac, f.amount_py,\n  f.amount_cf, f.amount_pf, f.amount_mfjun, f.amount_mfsep,\n  f.source_system\nFROM `ailab-512816.raw.fct_revenue` f\nLEFT JOIN `ailab-512816.raw.dim_account` a  ON a.dimid_account = f.dimid_account_code\nLEFT JOIN `ailab-512816.raw.dim_scenario` s  ON s.dimid_scenario_code = f.dimid_scenario_code\nLEFT JOIN `ailab-512816.raw.dim_entity` e  ON e.dimid_entity = f.dimid_entity\nLEFT JOIN `ailab-512816.raw.dim_product_hierarchy` p  ON p.dimid_product_sku = f.dimid_product_sku\nLEFT JOIN `ailab-512816.raw.dim_customer` c  ON c.dimid_customer_id = f.dimid_customer_id\nLEFT JOIN `ailab-512816.raw.dim_channel` ch ON ch.dimid_channel_code = f.dimid_channel_code\nLEFT JOIN `ailab-512816.raw.dim_audit_trail` au ON au.dimid_audit_id = f.dimid_audit_id\nLEFT JOIN `ailab-512816.raw.dim_promo` pr ON pr.dimid_prm_nprm_id = f.dimid_prm_nprm_id\nLEFT JOIN `ailab-512816.raw.dim_document` d  ON d.dimid_document = f.dimid_document\nLEFT JOIN `ailab-512816.raw.dim_base` b  ON b.dimid_base_id = f.dimid_base_id",
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_audit_trail",
+      "tabla:raw.dim_base",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_customer",
+      "tabla:raw.dim_document",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_promo",
+      "tabla:raw.dim_scenario",
+      "tabla:raw.fct_revenue"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_mv_si_so_andina_ca",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_mv_si_so_andina_ca",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_mv_si_so_andina_ca",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_mv_si_so_andina_ca",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_mv_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'WACAM')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_mv_si_so"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_mv_si_so_brasil",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_mv_si_so_brasil",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_mv_si_so_brasil",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_mv_si_so_brasil",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_mv_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'BRAZIL')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_mv_si_so"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_mv_si_so_cono_sur",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_mv_si_so_cono_sur",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_mv_si_so_cono_sur",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_mv_si_so_cono_sur",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_mv_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'SOCO')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_mv_si_so"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_mv_si_so_mexico",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_mv_si_so_mexico",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_mv_si_so_mexico",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_mv_si_so_mexico",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "RF",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "MV_3_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_3_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_RPT",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "MV_2_at_AC_next_year",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_mv_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'MEXICO')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_mv_si_so"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_os_si_so_andina_ca",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_os_si_so_andina_ca",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_os_si_so_andina_ca",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_os_si_so_andina_ca",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "JF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_os_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'WACAM')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_os_si_so"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_os_si_so_brasil",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_os_si_so_brasil",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_os_si_so_brasil",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_os_si_so_brasil",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "JF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_os_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'BRAZIL')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_os_si_so"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_os_si_so_cono_sur",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_os_si_so_cono_sur",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_os_si_so_cono_sur",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_os_si_so_cono_sur",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "JF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_os_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'SOCO')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_os_si_so"
+    ]
+  },
+  {
+    "id": "vista:staging.v_stock_os_si_so_mexico",
+    "tipo": "vista",
+    "nombre": "staging.v_stock_os_si_so_mexico",
+    "capa": "staging",
+    "descripcion_capa": "vistas intermedias con renombres y cortes por region",
+    "ubicacion": "ailab-512816.staging.v_stock_os_si_so_mexico",
+    "link": "https://console.cloud.google.com/bigquery?project=ailab-512816&ws=!1m5!1m4!4m3!1sailab-512816!2sstaging!3sv_stock_os_si_so_mexico",
+    "columnas": [
+      {
+        "nombre": "Year",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Account",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Entity",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Category",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "Month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "SF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "JF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "LF",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "PY_at_AC",
+        "tipo": "FLOAT64"
+      },
+      {
+        "nombre": "year_month",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "uuid",
+        "tipo": "STRING"
+      },
+      {
+        "nombre": "bq_ingest_date",
+        "tipo": "TIMESTAMP"
+      }
+    ],
+    "sql": "SELECT t.*\nFROM `ailab-512816.raw.stock_os_si_so` t\nWHERE t.Entity IN (SELECT dimid_entity_nk FROM `ailab-512816.raw.dim_entity` WHERE region = 'MEXICO')",
+    "lee_de": [
+      "tabla:raw.dim_entity",
+      "tabla:raw.stock_os_si_so"
+    ]
+  }
+]

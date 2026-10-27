@@ -1,0 +1,680 @@
+[
+  {
+    "id": "dashboard:powerbi.media_lab_tech_hackathon_forecast_vs_budget",
+    "tipo": "dashboard",
+    "nombre": "powerbi.media_lab_tech_hackathon_forecast_vs_budget",
+    "titulo": "Forecast vs Budget",
+    "capa": "powerbi",
+    "descripcion_capa": "dashboards de Power BI que consumen los usuarios",
+    "ubicacion": "dashboards\\media_lab_tech_hackathon_Forecast_vs_Budget.pbix",
+    "link": "https://app.powerbi.com/groups/me/reports/2223d1af-feac-4fd7-bf43-a90b0f33ee18?ctid=9885bf96-d2f2-44ad-b02c-e86191f5d2e2&pbi_source=linkShare",
+    "paginas": [
+      {
+        "textos": [
+          "Latest Forecast 2026 vs presupuesto anual · USD",
+          "Forecast vs Budget",
+          "Sabora: Revenue LATAM"
+        ],
+        "graficos": [
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "NR Forecast"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Var LF vs BU %"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Brecha LF vs BU"
+              ]
+            ]
+          },
+          {
+            "tipo": "clusteredColumnChart",
+            "campos": [
+              [
+                "columna",
+                "dim_entity",
+                "level_02_description"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Budget"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Forecast"
+              ]
+            ]
+          },
+          {
+            "tipo": "pivotTable",
+            "campos": [
+              [
+                "columna",
+                "dim_entity",
+                "level_02_description"
+              ],
+              [
+                "columna",
+                "dim_entity",
+                "level_05_description"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "Brecha LF vs BU"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Budget"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Forecast"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "NR Budget"
+              ]
+            ]
+          },
+          {
+            "tipo": "lineChart",
+            "campos": [
+              [
+                "columna",
+                "dim_time",
+                "period"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Budget"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Forecast Proyectado"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Avance Real vs Budget %"
+              ]
+            ]
+          }
+        ],
+        "filtros": [
+          "dim_time.year",
+          "dim_entity.level_05_description",
+          "dim_entity.level_02_description"
+        ],
+        "nombre": "Forecast vs Budget"
+      }
+    ],
+    "medidas_usadas": [
+      "Avance Real vs Budget %",
+      "Brecha LF vs BU",
+      "NR Base",
+      "NR Budget",
+      "NR Forecast",
+      "NR Forecast Proyectado",
+      "NR Real",
+      "Var LF vs BU %"
+    ],
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_time",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "modelo_carga": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_customer",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_scenario",
+      "tabla:raw.dim_time",
+      "tabla:raw.manual_be_hq_latam",
+      "tabla:raw.stock_os_si_so",
+      "vista:adhoc.v_nr_mensual_bu",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "columnas": []
+  },
+  {
+    "id": "dashboard:powerbi.media_lab_tech_hackathon_gross_the_net",
+    "tipo": "dashboard",
+    "nombre": "powerbi.media_lab_tech_hackathon_gross_the_net",
+    "titulo": "Gross to Net",
+    "capa": "powerbi",
+    "descripcion_capa": "dashboards de Power BI que consumen los usuarios",
+    "ubicacion": "dashboards\\media_lab_tech_hackathon_gross_the_net.pbix",
+    "link": "https://app.powerbi.com/groups/me/reports/1077f478-7a4a-46e5-be12-397557ae024c?ctid=9885bf96-d2f2-44ad-b02c-e86191f5d2e2&pbi_source=linkShare",
+    "paginas": [
+      {
+        "textos": [
+          "Gross to Net",
+          "De venta bruta a venta neta",
+          "Descuentos, trade spend y devoluciones · Real · USD"
+        ],
+        "graficos": [
+          {
+            "tipo": "pivotTable",
+            "campos": [
+              [
+                "columna",
+                "dim_account",
+                "account_description"
+              ],
+              [
+                "columna",
+                "dim_account",
+                "level_04_description"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "% sobre Venta Bruta"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Año Anterior"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "Var vs Año Anterior %"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Descuentos Totales"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Gross to Net %"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Gross Revenue"
+              ]
+            ]
+          },
+          {
+            "tipo": "clusteredBarChart",
+            "campos": [
+              [
+                "columna",
+                "dim_entity",
+                "level_05_description"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "Gross to Net %"
+              ]
+            ]
+          },
+          {
+            "tipo": "waterfallChart",
+            "campos": [
+              [
+                "columna",
+                "dim_account",
+                "level_04_description"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          }
+        ],
+        "filtros": [
+          "dim_entity.level_02_description",
+          "dim_entity.level_05_description",
+          "dim_time.year"
+        ],
+        "nombre": "Gross to Net"
+      }
+    ],
+    "medidas_usadas": [
+      "% sobre Venta Bruta",
+      "Descuentos Totales",
+      "Gross Revenue",
+      "Gross to Net %",
+      "NR Año Anterior",
+      "NR Base",
+      "NR Real",
+      "Var vs Año Anterior %"
+    ],
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_time",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "modelo_carga": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_customer",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_scenario",
+      "tabla:raw.dim_time",
+      "tabla:raw.manual_be_hq_latam",
+      "tabla:raw.stock_os_si_so",
+      "vista:adhoc.v_nr_mensual_bu",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "columnas": []
+  },
+  {
+    "id": "dashboard:powerbi.media_lab_tech_hackathon_marcas_y_categorias",
+    "tipo": "dashboard",
+    "nombre": "powerbi.media_lab_tech_hackathon_marcas_y_categorias",
+    "titulo": "Marcas y categorías",
+    "capa": "powerbi",
+    "descripcion_capa": "dashboards de Power BI que consumen los usuarios",
+    "ubicacion": "dashboards\\media_lab_tech_hackathon_marcas_y_categorias.pbix",
+    "link": "https://app.powerbi.com/groups/me/reports/003c57e1-5782-4232-a207-5365c20dc974?ctid=9885bf96-d2f2-44ad-b02c-e86191f5d2e2&pbi_source=linkShare",
+    "paginas": [
+      {
+        "textos": [
+          "Net Revenue real por producto · USD · Sin intercompañía",
+          "Marcas y categorías",
+          "Marcas y categorías"
+        ],
+        "graficos": [
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "clusteredBarChart",
+            "campos": [
+              [
+                "columna",
+                "dim_product_hierarchy",
+                "marca_desc"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Marca Lider"
+              ]
+            ]
+          },
+          {
+            "tipo": "pivotTable",
+            "campos": [
+              [
+                "columna",
+                "dim_product_hierarchy",
+                "categoryid_desc"
+              ],
+              [
+                "columna",
+                "dim_product_hierarchy",
+                "marca_desc"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Año Anterior"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "Var vs Año Anterior %"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "Volumen TN"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Var vs Año Anterior %"
+              ]
+            ]
+          },
+          {
+            "tipo": "treemap",
+            "campos": [
+              [
+                "columna",
+                "dim_product_hierarchy",
+                "category_desc"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "% Innovacion"
+              ]
+            ]
+          }
+        ],
+        "filtros": [
+          "dim_time.year",
+          "dim_entity.level_05_description",
+          "dim_entity.level_02_description"
+        ],
+        "nombre": "Marcas y categorías"
+      }
+    ],
+    "medidas_usadas": [
+      "% Innovacion",
+      "Marca Lider",
+      "NR Año Anterior",
+      "NR Base",
+      "NR Real",
+      "Var vs Año Anterior %",
+      "Venta Innovacion",
+      "Volumen TN"
+    ],
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_time",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "modelo_carga": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_customer",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_scenario",
+      "tabla:raw.dim_time",
+      "tabla:raw.manual_be_hq_latam",
+      "tabla:raw.stock_os_si_so",
+      "vista:adhoc.v_nr_mensual_bu",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "columnas": []
+  },
+  {
+    "id": "dashboard:powerbi.media_lab_tech_hackathon_resumen_ejecutivo",
+    "tipo": "dashboard",
+    "nombre": "powerbi.media_lab_tech_hackathon_resumen_ejecutivo",
+    "titulo": "Resumen Ejecutivo",
+    "capa": "powerbi",
+    "descripcion_capa": "dashboards de Power BI que consumen los usuarios",
+    "ubicacion": "dashboards\\media_lab_tech_hackathon_resumen_ejecutivo.pbix",
+    "link": "https://app.powerbi.com/groups/me/reports/caf31f43-2aca-4ec1-8535-6c38d3403b58?ctid=9885bf96-d2f2-44ad-b02c-e86191f5d2e2&pbi_source=linkShare",
+    "paginas": [
+      {
+        "textos": [
+          "Net Revenue USD  ·  Real a sept. 2026  ·  Sin intercompañía",
+          "Resumen ejecutivo",
+          "Sabora: Revenue LATAM"
+        ],
+        "graficos": [
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Volumen TN"
+              ]
+            ]
+          },
+          {
+            "tipo": "lineChart",
+            "campos": [
+              [
+                "columna",
+                "dim_time",
+                "period"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Año Anterior"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Budget"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Var vs Año Anterior %"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "pivotTable",
+            "campos": [
+              [
+                "columna",
+                "dim_entity",
+                "level_02_description"
+              ],
+              [
+                "columna",
+                "dim_entity",
+                "level_05_description"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "Var vs Año Anterior %"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "Var vs Budget %"
+              ]
+            ]
+          },
+          {
+            "tipo": "clusteredBarChart",
+            "campos": [
+              [
+                "columna",
+                "dim_entity",
+                "level_02_description"
+              ],
+              [
+                "medida",
+                "_Medidas",
+                "NR Real"
+              ]
+            ]
+          },
+          {
+            "tipo": "cardVisual",
+            "campos": [
+              [
+                "medida",
+                "_Medidas",
+                "Var vs Budget %"
+              ]
+            ]
+          }
+        ],
+        "filtros": [
+          "dim_entity.level_05_description",
+          "dim_entity.level_02_description",
+          "dim_time.year"
+        ],
+        "nombre": "Resumen Ejecutivo"
+      }
+    ],
+    "medidas_usadas": [
+      "NR Año Anterior",
+      "NR Base",
+      "NR Budget",
+      "NR Budget Comparable",
+      "NR Real",
+      "Var vs Año Anterior %",
+      "Var vs Budget %",
+      "Volumen TN"
+    ],
+    "lee_de": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_time",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "modelo_carga": [
+      "tabla:raw.dim_account",
+      "tabla:raw.dim_channel",
+      "tabla:raw.dim_customer",
+      "tabla:raw.dim_entity",
+      "tabla:raw.dim_product_hierarchy",
+      "tabla:raw.dim_scenario",
+      "tabla:raw.dim_time",
+      "tabla:raw.manual_be_hq_latam",
+      "tabla:raw.stock_os_si_so",
+      "vista:adhoc.v_nr_mensual_bu",
+      "vista:prod.v_revenue_snapshot"
+    ],
+    "columnas": []
+  }
+]

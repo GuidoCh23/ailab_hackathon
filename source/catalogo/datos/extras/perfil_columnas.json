@@ -1,0 +1,6183 @@
+{
+  "vista:adhoc.v_nr_mensual_bu": [
+    {
+      "nombre": "bu",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BRAZIL",
+        "HQ LATAM",
+        "MEXICO",
+        "SOCO",
+        "WACAM"
+      ]
+    },
+    {
+      "nombre": "year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "mes",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12"
+      ]
+    },
+    {
+      "nombre": "net_revenue",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 120,
+      "valores": []
+    }
+  ],
+  "vista:adhoc.v_revenue_snapshot_bkp": [
+    {
+      "nombre": "account_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "4100100",
+        "4100200",
+        "4200100",
+        "4200200",
+        "4210100",
+        "4210200",
+        "4300100",
+        "4400100",
+        "9100100"
+      ]
+    },
+    {
+      "nombre": "account_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "Descuento comercial en factura",
+        "Descuento por pronto pago",
+        "Devoluciones de clientes",
+        "Ingresos por servicios y regalías",
+        "Promociones y material POP",
+        "Rebates por volumen",
+        "Venta bruta exportación",
+        "Venta bruta mercado local",
+        "Volumen vendido en kg"
+      ]
+    },
+    {
+      "nombre": "dimid_account_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "1001",
+        "1002",
+        "1003",
+        "1004",
+        "1005",
+        "1006",
+        "1007",
+        "1008",
+        "1009"
+      ]
+    },
+    {
+      "nombre": "month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12"
+      ]
+    },
+    {
+      "nombre": "year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "dimid_time",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "scenario_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AC",
+        "BU",
+        "JF",
+        "LF",
+        "PY",
+        "SF"
+      ]
+    },
+    {
+      "nombre": "scenario_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Actual (real)",
+        "Budget (presupuesto anual)",
+        "June Forecast (forecast de junio)",
+        "Latest Forecast (último forecast)",
+        "Prior Year (real año anterior)",
+        "September Forecast (forecast de septiembre)"
+      ]
+    },
+    {
+      "nombre": "dimid_scenario_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "entity_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "AR01",
+        "BO01",
+        "BR01",
+        "BR02",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "HQ01",
+        "LX01",
+        "MX01",
+        "MX02",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "PY01",
+        "SV01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "entity_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "Sabora Argentina S.A.",
+        "Sabora Bebidas México S.A. de C.V.",
+        "Sabora Bolivia S.R.L.",
+        "Sabora Brasil Ltda.",
+        "Sabora Chile SpA",
+        "Sabora Colombia S.A.S.",
+        "Sabora Costa Rica S.A.",
+        "Sabora Dominicana S.R.L.",
+        "Sabora Ecuador S.A.",
+        "Sabora El Salvador S.A. de C.V.",
+        "Sabora Guatemala S.A.",
+        "Sabora Honduras S.A.",
+        "Sabora LAX Export Corp.",
+        "Sabora Latam HQ Servicios Regionales",
+        "Sabora México S.A. de C.V.",
+        "Sabora Nicaragua S.A.",
+        "Sabora Nordeste Alimentos Ltda.",
+        "Sabora Panamá S.A.",
+        "Sabora Paraguay S.A.",
+        "Sabora Perú S.A.C.",
+        "Sabora Puerto Rico LLC",
+        "Sabora Uruguay S.A."
+      ]
+    },
+    {
+      "nombre": "dimid_entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "21",
+        "22",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "sku_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "sku_desc",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_product_sku",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "customer_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 80,
+      "valores": []
+    },
+    {
+      "nombre": "customer_description",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 65,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_customer_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 80,
+      "valores": []
+    },
+    {
+      "nombre": "channel_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH04",
+        "CH05",
+        "CH06",
+        "CH07",
+        "CH08",
+        "CH09",
+        "CH10"
+      ]
+    },
+    {
+      "nombre": "channel_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "Bodegas y tiendas de barrio",
+        "Distribuidores",
+        "E-commerce",
+        "Exportación",
+        "Farmacias",
+        "Hipermercados",
+        "Intercompañía",
+        "Mayoristas",
+        "Supermercados",
+        "Tiendas de conveniencia"
+      ]
+    },
+    {
+      "nombre": "dimid_channel_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "audit_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AT01",
+        "AT02",
+        "AT03",
+        "AT04",
+        "AT05",
+        "AT06"
+      ]
+    },
+    {
+      "nombre": "audit_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Ajuste manual de cierre",
+        "Asignación de servicios HQ",
+        "Carga automática ERP",
+        "Input de Budget",
+        "Input de Forecast",
+        "Reclasificación entre cuentas"
+      ]
+    },
+    {
+      "nombre": "dimid_audit_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "uom",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "CUR",
+        "KG"
+      ]
+    },
+    {
+      "nombre": "amount_lc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48449,
+      "valores": []
+    },
+    {
+      "nombre": "amount_rc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48387,
+      "valores": []
+    },
+    {
+      "nombre": "amount_ac",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53411,
+      "valores": []
+    },
+    {
+      "nombre": "amount_py",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53433,
+      "valores": []
+    },
+    {
+      "nombre": "amount_cf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53427,
+      "valores": []
+    },
+    {
+      "nombre": "amount_pf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfjun",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53428,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfsep",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "area",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "REVENUE",
+        "VOLUME"
+      ]
+    },
+    {
+      "nombre": "snapshot_version",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "MV2026-06"
+      ]
+    },
+    {
+      "nombre": "snapshot_cycle",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026-06"
+      ]
+    },
+    {
+      "nombre": "snapshot_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:adhoc.v_venta_neta_peru_tmp": [
+    {
+      "nombre": "year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "mes",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12"
+      ]
+    },
+    {
+      "nombre": "venta_neta_pen",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 21,
+      "valores": []
+    }
+  ],
+  "vista:prod.v_revenue_snapshot": [
+    {
+      "nombre": "account_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "4100100",
+        "4100200",
+        "4200100",
+        "4200200",
+        "4210100",
+        "4210200",
+        "4300100",
+        "4400100",
+        "9100100"
+      ]
+    },
+    {
+      "nombre": "account_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "Descuento comercial en factura",
+        "Descuento por pronto pago",
+        "Devoluciones de clientes",
+        "Ingresos por servicios y regalías",
+        "Promociones y material POP",
+        "Rebates por volumen",
+        "Venta bruta exportación",
+        "Venta bruta mercado local",
+        "Volumen vendido en kg"
+      ]
+    },
+    {
+      "nombre": "dimid_account_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "1001",
+        "1002",
+        "1003",
+        "1004",
+        "1005",
+        "1006",
+        "1007",
+        "1008",
+        "1009"
+      ]
+    },
+    {
+      "nombre": "month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12"
+      ]
+    },
+    {
+      "nombre": "year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "dimid_time",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "scenario_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AC",
+        "BU",
+        "JF",
+        "LF",
+        "PY",
+        "SF"
+      ]
+    },
+    {
+      "nombre": "scenario_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Actual (real)",
+        "Budget (presupuesto anual)",
+        "June Forecast (forecast de junio)",
+        "Latest Forecast (último forecast)",
+        "Prior Year (real año anterior)",
+        "September Forecast (forecast de septiembre)"
+      ]
+    },
+    {
+      "nombre": "dimid_scenario_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "entity_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "AR01",
+        "BO01",
+        "BR01",
+        "BR02",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "HQ01",
+        "LX01",
+        "MX01",
+        "MX02",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "PY01",
+        "SV01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "entity_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "Sabora Argentina S.A.",
+        "Sabora Bebidas México S.A. de C.V.",
+        "Sabora Bolivia S.R.L.",
+        "Sabora Brasil Ltda.",
+        "Sabora Chile SpA",
+        "Sabora Colombia S.A.S.",
+        "Sabora Costa Rica S.A.",
+        "Sabora Dominicana S.R.L.",
+        "Sabora Ecuador S.A.",
+        "Sabora El Salvador S.A. de C.V.",
+        "Sabora Guatemala S.A.",
+        "Sabora Honduras S.A.",
+        "Sabora LAX Export Corp.",
+        "Sabora Latam HQ Servicios Regionales",
+        "Sabora México S.A. de C.V.",
+        "Sabora Nicaragua S.A.",
+        "Sabora Nordeste Alimentos Ltda.",
+        "Sabora Panamá S.A.",
+        "Sabora Paraguay S.A.",
+        "Sabora Perú S.A.C.",
+        "Sabora Puerto Rico LLC",
+        "Sabora Uruguay S.A."
+      ]
+    },
+    {
+      "nombre": "dimid_entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "21",
+        "22",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "sku_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "sku_desc",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_product_sku",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "customer_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 80,
+      "valores": []
+    },
+    {
+      "nombre": "customer_description",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 65,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_customer_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 80,
+      "valores": []
+    },
+    {
+      "nombre": "channel_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH04",
+        "CH05",
+        "CH06",
+        "CH07",
+        "CH08",
+        "CH09",
+        "CH10"
+      ]
+    },
+    {
+      "nombre": "channel_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "Bodegas y tiendas de barrio",
+        "Distribuidores",
+        "E-commerce",
+        "Exportación",
+        "Farmacias",
+        "Hipermercados",
+        "Intercompañía",
+        "Mayoristas",
+        "Supermercados",
+        "Tiendas de conveniencia"
+      ]
+    },
+    {
+      "nombre": "dimid_channel_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "audit_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AT01",
+        "AT02",
+        "AT03",
+        "AT04",
+        "AT05",
+        "AT06"
+      ]
+    },
+    {
+      "nombre": "audit_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Ajuste manual de cierre",
+        "Asignación de servicios HQ",
+        "Carga automática ERP",
+        "Input de Budget",
+        "Input de Forecast",
+        "Reclasificación entre cuentas"
+      ]
+    },
+    {
+      "nombre": "dimid_audit_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "promo_nonpromo_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "#",
+        "NPR",
+        "PRM"
+      ]
+    },
+    {
+      "nombre": "promo_nonpromo_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "No asignado",
+        "No promocional",
+        "Promocional"
+      ]
+    },
+    {
+      "nombre": "dimid_prm_nprm_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "-1",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "nombre": "base_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "B01",
+        "B02"
+      ]
+    },
+    {
+      "nombre": "base_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "Base",
+        "Innovación (lanzamientos)"
+      ]
+    },
+    {
+      "nombre": "dimid_base_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "nombre": "uom",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "CUR",
+        "KG"
+      ]
+    },
+    {
+      "nombre": "amount_lc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48449,
+      "valores": []
+    },
+    {
+      "nombre": "amount_rc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48387,
+      "valores": []
+    },
+    {
+      "nombre": "amount_ac",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53411,
+      "valores": []
+    },
+    {
+      "nombre": "amount_py",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53433,
+      "valores": []
+    },
+    {
+      "nombre": "amount_cf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53427,
+      "valores": []
+    },
+    {
+      "nombre": "amount_pf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfjun",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53428,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfsep",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "area",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "REVENUE",
+        "VOLUME"
+      ]
+    },
+    {
+      "nombre": "snapshot_version",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "MV2026-09"
+      ]
+    },
+    {
+      "nombre": "snapshot_cycle",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026-09"
+      ]
+    },
+    {
+      "nombre": "snapshot_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "tabla:raw.dim_account": [
+    {
+      "nombre": "dimid_account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "1001",
+        "1002",
+        "1003",
+        "1004",
+        "1005",
+        "1006",
+        "1007",
+        "1008",
+        "1009"
+      ]
+    },
+    {
+      "nombre": "dimid_account_nk",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "4100100",
+        "4100200",
+        "4200100",
+        "4200200",
+        "4210100",
+        "4210200",
+        "4300100",
+        "4400100",
+        "9100100"
+      ]
+    },
+    {
+      "nombre": "account_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "Descuento comercial en factura",
+        "Descuento por pronto pago",
+        "Devoluciones de clientes",
+        "Ingresos por servicios y regalías",
+        "Promociones y material POP",
+        "Rebates por volumen",
+        "Venta bruta exportación",
+        "Venta bruta mercado local",
+        "Volumen vendido en kg"
+      ]
+    },
+    {
+      "nombre": "level",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "6"
+      ]
+    },
+    {
+      "nombre": "parent",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "DSC_COM",
+        "DSC_PP",
+        "GRL_PT",
+        "GRX_PT",
+        "OIO_SRV",
+        "RET_DEV",
+        "TSP_PRM",
+        "TSP_REB",
+        "VKG_TOT"
+      ]
+    },
+    {
+      "nombre": "account_type",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "INC",
+        "NFIN"
+      ]
+    },
+    {
+      "nombre": "aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "SUM"
+      ]
+    },
+    {
+      "nombre": "level_01",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "PL"
+      ]
+    },
+    {
+      "nombre": "level_01_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "TOTAL P&L"
+      ]
+    },
+    {
+      "nombre": "level_01_accounttype",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "INC"
+      ]
+    },
+    {
+      "nombre": "level_02",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "NR",
+        "STAT"
+      ]
+    },
+    {
+      "nombre": "level_02_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "ESTADÍSTICAS",
+        "NET REVENUE"
+      ]
+    },
+    {
+      "nombre": "level_02_accounttype",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "INC",
+        "NFIN"
+      ]
+    },
+    {
+      "nombre": "level_03",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "G2N",
+        "GR",
+        "OI",
+        "VOL"
+      ]
+    },
+    {
+      "nombre": "level_03_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "GROSS REVENUE",
+        "GROSS TO NET",
+        "OTROS INGRESOS",
+        "VOLUMEN"
+      ]
+    },
+    {
+      "nombre": "level_03_accounttype",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "INC",
+        "NFIN"
+      ]
+    },
+    {
+      "nombre": "level_04",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 7,
+      "valores": [
+        "DSC",
+        "GRL",
+        "GRX",
+        "OIO",
+        "RET",
+        "TSP",
+        "VKG"
+      ]
+    },
+    {
+      "nombre": "level_04_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 7,
+      "valores": [
+        "DESCUENTOS EN FACTURA",
+        "DEVOLUCIONES",
+        "OTROS INGRESOS OPERATIVOS",
+        "TRADE SPEND",
+        "VENTA EXPORTACIÓN",
+        "VENTA MERCADO LOCAL",
+        "VOLUMEN KG"
+      ]
+    },
+    {
+      "nombre": "level_04_accounttype",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "INC",
+        "NFIN"
+      ]
+    },
+    {
+      "nombre": "level_05",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "DSC_COM",
+        "DSC_PP",
+        "GRL_PT",
+        "GRX_PT",
+        "OIO_SRV",
+        "RET_DEV",
+        "TSP_PRM",
+        "TSP_REB",
+        "VKG_TOT"
+      ]
+    },
+    {
+      "nombre": "level_05_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "DESCUENTO COMERCIAL",
+        "DESCUENTO PRONTO PAGO",
+        "DEVOLUCIONES DE CLIENTES",
+        "PRODUCTO TERMINADO EXPORTACIÓN",
+        "PRODUCTO TERMINADO LOCAL",
+        "PROMOCIONES",
+        "REBATES Y ACUERDOS",
+        "SERVICIOS Y REGALÍAS",
+        "VOLUMEN VENDIDO"
+      ]
+    },
+    {
+      "nombre": "level_05_accounttype",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "INC",
+        "NFIN"
+      ]
+    },
+    {
+      "nombre": "level_06",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "4100100",
+        "4100200",
+        "4200100",
+        "4200200",
+        "4210100",
+        "4210200",
+        "4300100",
+        "4400100",
+        "9100100"
+      ]
+    },
+    {
+      "nombre": "level_06_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "Descuento comercial en factura",
+        "Descuento por pronto pago",
+        "Devoluciones de clientes",
+        "Ingresos por servicios y regalías",
+        "Promociones y material POP",
+        "Rebates por volumen",
+        "Venta bruta exportación",
+        "Venta bruta mercado local",
+        "Volumen vendido en kg"
+      ]
+    },
+    {
+      "nombre": "level_06_accounttype",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "INC",
+        "NFIN"
+      ]
+    },
+    {
+      "nombre": "BQ_INGEST_TIMESTAMP",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "UUID",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 9,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "MDM"
+      ]
+    }
+  ],
+  "tabla:raw.dim_audit_trail": [
+    {
+      "nombre": "dimid_audit_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "dimid_audit_id_nk",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AT01",
+        "AT02",
+        "AT03",
+        "AT04",
+        "AT05",
+        "AT06"
+      ]
+    },
+    {
+      "nombre": "audit_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Ajuste manual de cierre",
+        "Asignación de servicios HQ",
+        "Carga automática ERP",
+        "Input de Budget",
+        "Input de Forecast",
+        "Reclasificación entre cuentas"
+      ]
+    },
+    {
+      "nombre": "level1",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "ALL"
+      ]
+    },
+    {
+      "nombre": "level1_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "TOTAL AUDIT TRAIL"
+      ]
+    },
+    {
+      "nombre": "level2",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "AJU",
+        "PLN",
+        "SIS"
+      ]
+    },
+    {
+      "nombre": "level2_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "AJUSTES",
+        "DATOS DE SISTEMA",
+        "PLANIFICACIÓN"
+      ]
+    },
+    {
+      "nombre": "level3",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "ASG",
+        "BUD",
+        "ERP",
+        "FCT",
+        "MAN",
+        "REC"
+      ]
+    },
+    {
+      "nombre": "level3_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AJUSTE MANUAL",
+        "ASIGNACIÓN",
+        "CARGA ERP",
+        "INPUT FORECAST",
+        "INPUT PLAN",
+        "RECLASIFICACIÓN"
+      ]
+    },
+    {
+      "nombre": "level4",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AT01",
+        "AT02",
+        "AT03",
+        "AT04",
+        "AT05",
+        "AT06"
+      ]
+    },
+    {
+      "nombre": "level4_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Ajuste manual de cierre",
+        "Asignación de servicios HQ",
+        "Carga automática ERP",
+        "Input de Budget",
+        "Input de Forecast",
+        "Reclasificación entre cuentas"
+      ]
+    },
+    {
+      "nombre": "flag_costo",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "N"
+      ]
+    },
+    {
+      "nombre": "flag_ajuste",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "nombre": "BQ_INGEST_TIMESTAMP",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "SRC_FILENAME",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "audit_trail_20261005.csv"
+      ]
+    },
+    {
+      "nombre": "UUID",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 6,
+      "valores": []
+    }
+  ],
+  "tabla:raw.dim_base": [
+    {
+      "nombre": "dimid_base_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "nombre": "dimid_base_id_nk",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ]
+    },
+    {
+      "nombre": "description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "Adquisiciones",
+        "Base",
+        "Desinversiones",
+        "Innovación (lanzamientos)"
+      ]
+    },
+    {
+      "nombre": "order_seq",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04"
+      ]
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 4,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "MDM"
+      ]
+    }
+  ],
+  "tabla:raw.dim_channel": [
+    {
+      "nombre": "dimid_channel_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "-1",
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "dimid_channel_code_nk",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "#",
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH04",
+        "CH05",
+        "CH06",
+        "CH07",
+        "CH08",
+        "CH09",
+        "CH10"
+      ]
+    },
+    {
+      "nombre": "description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "Bodegas y tiendas de barrio",
+        "Distribuidores",
+        "E-commerce",
+        "Exportación",
+        "Farmacias",
+        "Hipermercados",
+        "Intercompañía",
+        "Mayoristas",
+        "No asignado",
+        "Supermercados",
+        "Tiendas de conveniencia"
+      ]
+    },
+    {
+      "nombre": "Parent",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "AUT",
+        "BOD",
+        "CNV",
+        "DIS",
+        "ECO",
+        "EXP",
+        "FAR",
+        "ICO",
+        "MAY",
+        "OTR"
+      ]
+    },
+    {
+      "nombre": "aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "SUM"
+      ]
+    },
+    {
+      "nombre": "level_01",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "ALL"
+      ]
+    },
+    {
+      "nombre": "level_01_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "TOTAL CANALES"
+      ]
+    },
+    {
+      "nombre": "level_01_aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "SUM"
+      ]
+    },
+    {
+      "nombre": "level_02",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "MOD",
+        "OTR",
+        "TRA"
+      ]
+    },
+    {
+      "nombre": "level_02_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "MODERNO",
+        "OTROS",
+        "TRADICIONAL"
+      ]
+    },
+    {
+      "nombre": "level_02_aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "SUM"
+      ]
+    },
+    {
+      "nombre": "level_03",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "AUT",
+        "BOD",
+        "CNV",
+        "DIS",
+        "ECO",
+        "EXP",
+        "FAR",
+        "ICO",
+        "MAY",
+        "NA"
+      ]
+    },
+    {
+      "nombre": "level_03_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "AUTOSERVICIOS",
+        "CONVENIENCIA",
+        "DISTRIBUIDORES",
+        "E-COMMERCE",
+        "EXPORTACIÓN",
+        "FARMACIAS",
+        "INTERCOMPAÑÍA",
+        "MAYORISTAS",
+        "NO ASIGNADO",
+        "VENTA DIRECTA A BODEGAS"
+      ]
+    },
+    {
+      "nombre": "level_03_aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "SUM"
+      ]
+    },
+    {
+      "nombre": "level_04",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "#",
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH04",
+        "CH05",
+        "CH06",
+        "CH07",
+        "CH08",
+        "CH09",
+        "CH10"
+      ]
+    },
+    {
+      "nombre": "level_04_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "Bodegas y tiendas de barrio",
+        "Distribuidores",
+        "E-commerce",
+        "Exportación",
+        "Farmacias",
+        "Hipermercados",
+        "Intercompañía",
+        "Mayoristas",
+        "No asignado",
+        "Supermercados",
+        "Tiendas de conveniencia"
+      ]
+    },
+    {
+      "nombre": "level_04_aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "SUM"
+      ]
+    },
+    {
+      "nombre": "level",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "4"
+      ]
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 11,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "MDM"
+      ]
+    }
+  ],
+  "tabla:raw.dim_customer": [
+    {
+      "nombre": "dimid_customer_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 85,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_customer_id_nk",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 85,
+      "valores": []
+    },
+    {
+      "nombre": "customer_description",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 69,
+      "valores": []
+    },
+    {
+      "nombre": "level1",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "ALL"
+      ]
+    },
+    {
+      "nombre": "level1_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "TOTAL CLIENTES"
+      ]
+    },
+    {
+      "nombre": "level2",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "EXT",
+        "ICO",
+        "NA"
+      ]
+    },
+    {
+      "nombre": "level2_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "CLIENTES EXTERNOS",
+        "INTERCOMPAÑÍA",
+        "NO ASIGNADO"
+      ]
+    },
+    {
+      "nombre": "level3",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "EXP",
+        "ICO",
+        "MOD",
+        "NA",
+        "TRA"
+      ]
+    },
+    {
+      "nombre": "level3_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "EXPORTACIÓN",
+        "INTERCOMPAÑÍA",
+        "MODERNO",
+        "NO ASIGNADO",
+        "TRADICIONAL"
+      ]
+    },
+    {
+      "nombre": "level4",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 21,
+      "valores": [
+        "AR",
+        "BO",
+        "BR",
+        "CL",
+        "CO",
+        "CR",
+        "DO",
+        "EC",
+        "GT",
+        "HN",
+        "LATAM",
+        "LX",
+        "MX",
+        "NA",
+        "NI",
+        "PA",
+        "PE",
+        "PR",
+        "PY",
+        "SV",
+        "UY"
+      ]
+    },
+    {
+      "nombre": "level4_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 21,
+      "valores": [
+        "ARGENTINA",
+        "BOLIVIA",
+        "BRAZIL",
+        "CHILE",
+        "COLOMBIA",
+        "COSTA RICA",
+        "ECUADOR",
+        "EL SALVADOR",
+        "GUATEMALA",
+        "HONDURAS",
+        "LATAM",
+        "LAX",
+        "MEXICO",
+        "NICARAGUA",
+        "NO ASIGNADO",
+        "PANAMA",
+        "PARAGUAY",
+        "PERU",
+        "PUERTO RICO",
+        "REPUBLICA DOMINICANA",
+        "URUGUAY"
+      ]
+    },
+    {
+      "nombre": "level5",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 26,
+      "valores": [
+        "GRP-ALTIPLANO",
+        "GRP-AURORA",
+        "GRP-BAHIA",
+        "GRP-BRISA",
+        "GRP-CORDILLERA",
+        "GRP-CUMBRE",
+        "GRP-DONRAMIRO",
+        "GRP-ELFARO",
+        "GRP-ELMOLINO",
+        "GRP-ELTREBOL",
+        "GRP-HORIZONTE",
+        "GRP-LACOLMENA",
+        "GRP-LAESQUINA",
+        "GRP-LASPALMAS",
+        "GRP-LOSPINOS",
+        "GRP-LOSROBLES",
+        "GRP-MIRADOR",
+        "GRP-NOVA",
+        "GRP-PRIMAVERA",
+        "GRP-PUERTOAZUL",
+        "GRP-RIOCLARO",
+        "GRP-SABORA",
+        "GRP-SANTACLARA",
+        "GRP-SANTELMO",
+        "GRP-SOLDEMAYO",
+        "NA"
+      ]
+    },
+    {
+      "nombre": "level5_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 26,
+      "valores": [
+        "GRUPO ALTIPLANO",
+        "GRUPO AURORA",
+        "GRUPO BAHÍA",
+        "GRUPO BRISA",
+        "GRUPO CORDILLERA",
+        "GRUPO CUMBRE",
+        "GRUPO DON RAMIRO",
+        "GRUPO EL FARO",
+        "GRUPO EL MOLINO",
+        "GRUPO EL TRÉBOL",
+        "GRUPO HORIZONTE",
+        "GRUPO LA COLMENA",
+        "GRUPO LA ESQUINA",
+        "GRUPO LAS PALMAS",
+        "GRUPO LOS PINOS",
+        "GRUPO LOS ROBLES",
+        "GRUPO MIRADOR",
+        "GRUPO NOVA",
+        "GRUPO PRIMAVERA",
+        "GRUPO PUERTO AZUL",
+        "GRUPO RÍO CLARO",
+        "GRUPO SABORA",
+        "GRUPO SAN TELMO",
+        "GRUPO SANTA CLARA",
+        "GRUPO SOL DE MAYO",
+        "NO ASIGNADO"
+      ]
+    },
+    {
+      "nombre": "BQ_INGEST_TIMESTAMP",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "SRC_FILENAME",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "clientes_maestro_20260801.csv"
+      ]
+    },
+    {
+      "nombre": "UUID",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 85,
+      "valores": []
+    }
+  ],
+  "tabla:raw.dim_document": [
+    {
+      "nombre": "dimid_document",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "10",
+        "20",
+        "30"
+      ]
+    },
+    {
+      "nombre": "UOM",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "CUR",
+        "KG",
+        "UN"
+      ]
+    }
+  ],
+  "tabla:raw.dim_entity": [
+    {
+      "nombre": "dimid_entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "21",
+        "22",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "dimid_entity_nk",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "AR01",
+        "BO01",
+        "BR01",
+        "BR02",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "HQ01",
+        "LX01",
+        "MX01",
+        "MX02",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "PY01",
+        "SV01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "entity_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "Sabora Argentina S.A.",
+        "Sabora Bebidas México S.A. de C.V.",
+        "Sabora Bolivia S.R.L.",
+        "Sabora Brasil Ltda.",
+        "Sabora Chile SpA",
+        "Sabora Colombia S.A.S.",
+        "Sabora Costa Rica S.A.",
+        "Sabora Dominicana S.R.L.",
+        "Sabora Ecuador S.A.",
+        "Sabora El Salvador S.A. de C.V.",
+        "Sabora Guatemala S.A.",
+        "Sabora Honduras S.A.",
+        "Sabora LAX Export Corp.",
+        "Sabora Latam HQ Servicios Regionales",
+        "Sabora México S.A. de C.V.",
+        "Sabora Nicaragua S.A.",
+        "Sabora Nordeste Alimentos Ltda.",
+        "Sabora Panamá S.A.",
+        "Sabora Paraguay S.A.",
+        "Sabora Perú S.A.C.",
+        "Sabora Puerto Rico LLC",
+        "Sabora Uruguay S.A."
+      ]
+    },
+    {
+      "nombre": "planning_entity_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "PLN_AR01",
+        "PLN_BO01",
+        "PLN_BR01",
+        "PLN_BR02",
+        "PLN_CL01",
+        "PLN_CO01",
+        "PLN_CR01",
+        "PLN_DO01",
+        "PLN_EC01",
+        "PLN_GT01",
+        "PLN_HN01",
+        "PLN_HQ01",
+        "PLN_LX01",
+        "PLN_MX01",
+        "PLN_MX02",
+        "PLN_NI01",
+        "PLN_PA01",
+        "PLN_PE01",
+        "PLN_PR01",
+        "PLN_PY01",
+        "PLN_SV01",
+        "PLN_UY01"
+      ]
+    },
+    {
+      "nombre": "planning_entity_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "SABORA ARGENTINA S.A.",
+        "SABORA BEBIDAS MÉXICO S.A. DE C.V.",
+        "SABORA BOLIVIA S.R.L.",
+        "SABORA BRASIL LTDA.",
+        "SABORA CHILE SPA",
+        "SABORA COLOMBIA S.A.S.",
+        "SABORA COSTA RICA S.A.",
+        "SABORA DOMINICANA S.R.L.",
+        "SABORA ECUADOR S.A.",
+        "SABORA EL SALVADOR S.A. DE C.V.",
+        "SABORA GUATEMALA S.A.",
+        "SABORA HONDURAS S.A.",
+        "SABORA LATAM HQ SERVICIOS REGIONALES",
+        "SABORA LAX EXPORT CORP.",
+        "SABORA MÉXICO S.A. DE C.V.",
+        "SABORA NICARAGUA S.A.",
+        "SABORA NORDESTE ALIMENTOS LTDA.",
+        "SABORA PANAMÁ S.A.",
+        "SABORA PARAGUAY S.A.",
+        "SABORA PERÚ S.A.C.",
+        "SABORA PUERTO RICO LLC",
+        "SABORA URUGUAY S.A."
+      ]
+    },
+    {
+      "nombre": "allocation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "nombre": "parent",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 20,
+      "valores": [
+        "CTY_AR",
+        "CTY_BO",
+        "CTY_BR",
+        "CTY_CL",
+        "CTY_CO",
+        "CTY_CR",
+        "CTY_DO",
+        "CTY_EC",
+        "CTY_GT",
+        "CTY_HN",
+        "CTY_HQ",
+        "CTY_LX",
+        "CTY_MX",
+        "CTY_NI",
+        "CTY_PA",
+        "CTY_PE",
+        "CTY_PR",
+        "CTY_PY",
+        "CTY_SV",
+        "CTY_UY"
+      ]
+    },
+    {
+      "nombre": "level_01",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "LATAM"
+      ]
+    },
+    {
+      "nombre": "level_01_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "TOTAL LATAM"
+      ]
+    },
+    {
+      "nombre": "level_02",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BU_BRAZIL",
+        "BU_HQ_LATAM",
+        "BU_MEXICO",
+        "BU_SOCO",
+        "BU_WACAM"
+      ]
+    },
+    {
+      "nombre": "level_02_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BRAZIL",
+        "HQ LATAM",
+        "MEXICO",
+        "SOCO",
+        "WACAM"
+      ]
+    },
+    {
+      "nombre": "level_03",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "C1_BRAZIL",
+        "C1_HQ_LATAM",
+        "C1_MEXICO",
+        "C1_NORTH_WACAM",
+        "C1_SOCO",
+        "C1_SOUTH_WACAM"
+      ]
+    },
+    {
+      "nombre": "level_03_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "BRAZIL",
+        "HQ LATAM",
+        "MEXICO",
+        "NORTH WACAM",
+        "SOCO",
+        "SOUTH WACAM"
+      ]
+    },
+    {
+      "nombre": "level_04",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "C2_AMEX",
+        "C2_ARGENTINA",
+        "C2_BRAZIL",
+        "C2_CARICAM_MDs",
+        "C2_COLEC",
+        "C2_HQ_LATAM",
+        "C2_MEXICO",
+        "C2_SOUTH_WACAM",
+        "C2_URUGUAY"
+      ]
+    },
+    {
+      "nombre": "level_04_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "AMEX",
+        "ARGENTINA",
+        "BRAZIL",
+        "CARICAM MDs",
+        "COLEC",
+        "HQ LATAM",
+        "MEXICO",
+        "SOUTH WACAM",
+        "URUGUAY"
+      ]
+    },
+    {
+      "nombre": "level_05",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 20,
+      "valores": [
+        "CTY_AR",
+        "CTY_BO",
+        "CTY_BR",
+        "CTY_CL",
+        "CTY_CO",
+        "CTY_CR",
+        "CTY_DO",
+        "CTY_EC",
+        "CTY_GT",
+        "CTY_HN",
+        "CTY_HQ",
+        "CTY_LX",
+        "CTY_MX",
+        "CTY_NI",
+        "CTY_PA",
+        "CTY_PE",
+        "CTY_PR",
+        "CTY_PY",
+        "CTY_SV",
+        "CTY_UY"
+      ]
+    },
+    {
+      "nombre": "level_05_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 20,
+      "valores": [
+        "ARGENTINA",
+        "BOLIVIA",
+        "BRAZIL",
+        "CHILE",
+        "COLOMBIA",
+        "COSTA RICA",
+        "ECUADOR",
+        "EL SALVADOR",
+        "GUATEMALA",
+        "HONDURAS",
+        "HQ LATAM",
+        "LAX",
+        "MEXICO",
+        "NICARAGUA",
+        "PANAMA",
+        "PARAGUAY",
+        "PERU",
+        "PUERTO RICO",
+        "REPUBLICA DOMINICANA",
+        "URUGUAY"
+      ]
+    },
+    {
+      "nombre": "tech_hierarchy",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "LEGAL"
+      ]
+    },
+    {
+      "nombre": "currency",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 15,
+      "valores": [
+        "ARS",
+        "BOB",
+        "BRL",
+        "CLP",
+        "COP",
+        "CRC",
+        "DOP",
+        "GTQ",
+        "HNL",
+        "MXN",
+        "NIO",
+        "PEN",
+        "PYG",
+        "USD",
+        "UYU"
+      ]
+    },
+    {
+      "nombre": "row_source",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "ERP",
+        "MANUAL"
+      ]
+    },
+    {
+      "nombre": "region",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BRAZIL",
+        "HQ LATAM",
+        "MEXICO",
+        "SOCO",
+        "WACAM"
+      ]
+    },
+    {
+      "nombre": "BQ_INGEST_TIMESTAMP",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "UUID",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 22,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "MDM"
+      ]
+    }
+  ],
+  "tabla:raw.dim_product_hierarchy": [
+    {
+      "nombre": "dimid_product_sku",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_product_sku_nk",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "sku_desc",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "familia_formato",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 40,
+      "valores": []
+    },
+    {
+      "nombre": "familia_formato_desc",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 40,
+      "valores": []
+    },
+    {
+      "nombre": "sub_brand",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "#",
+        "BRD-011-CLA",
+        "BRD-011-PRE",
+        "BRD-012-CLA",
+        "BRD-012-PRE",
+        "BRD-021-CLA",
+        "BRD-021-PRE",
+        "BRD-021-PRO",
+        "BRD-022-CLA",
+        "BRD-022-PRE",
+        "BRD-031-CLA",
+        "BRD-031-PRE",
+        "BRD-032-CLA",
+        "BRD-032-PRE",
+        "BRD-041-CLA",
+        "BRD-041-PRE",
+        "BRD-042-CLA",
+        "BRD-042-PRE",
+        "BRD-051-CLA",
+        "BRD-051-PRE",
+        "BRD-052-CLA",
+        "BRD-052-PRE"
+      ]
+    },
+    {
+      "nombre": "subbrand_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "Andesol Clásico",
+        "Andesol Premium",
+        "Burbujita Clásico",
+        "Burbujita Premium",
+        "Cacaolé Clásico",
+        "Cacaolé Premium",
+        "Cremosa Clásico",
+        "Cremosa Premium",
+        "Crujix Clásico",
+        "Crujix Premium",
+        "Crujix Proteína",
+        "Frutalia Clásico",
+        "Frutalia Premium",
+        "Galletón Clásico",
+        "Galletón Premium",
+        "Jugomix Clásico",
+        "Jugomix Premium",
+        "Mentolín Clásico",
+        "Mentolín Premium",
+        "NO ASIGNADO",
+        "Postrecito Clásico",
+        "Postrecito Premium"
+      ]
+    },
+    {
+      "nombre": "marca",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "#",
+        "BRD-011",
+        "BRD-012",
+        "BRD-021",
+        "BRD-022",
+        "BRD-031",
+        "BRD-032",
+        "BRD-041",
+        "BRD-042",
+        "BRD-051",
+        "BRD-052"
+      ]
+    },
+    {
+      "nombre": "marca_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "Andesol",
+        "Burbujita",
+        "Cacaolé",
+        "Cremosa",
+        "Crujix",
+        "Frutalia",
+        "Galletón",
+        "Jugomix",
+        "Mentolín",
+        "NO ASIGNADO",
+        "Postrecito"
+      ]
+    },
+    {
+      "nombre": "marca_paraguas",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "#",
+        "UMB-AND",
+        "UMB-BUR",
+        "UMB-CAC",
+        "UMB-CRE",
+        "UMB-CRU",
+        "UMB-FRU",
+        "UMB-GAL",
+        "UMB-JUG",
+        "UMB-MEN",
+        "UMB-POS"
+      ]
+    },
+    {
+      "nombre": "marca_paraguas_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "ANDESOL",
+        "BURBUJITA",
+        "CACAOLÉ",
+        "CREMOSA",
+        "CRUJIX",
+        "FRUTALIA",
+        "GALLETÓN",
+        "JUGOMIX",
+        "MENTOLÍN",
+        "NO ASIGNADO",
+        "POSTRECITO"
+      ]
+    },
+    {
+      "nombre": "segment_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "#",
+        "SG1",
+        "SG2"
+      ]
+    },
+    {
+      "nombre": "segmentcode_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "MAINSTREAM",
+        "NO ASIGNADO",
+        "PREMIUM"
+      ]
+    },
+    {
+      "nombre": "sub_category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 14,
+      "valores": [
+        "#",
+        "CAT01-01",
+        "CAT01-02",
+        "CAT01-03",
+        "CAT02-01",
+        "CAT02-02",
+        "CAT02-03",
+        "CAT03-01",
+        "CAT03-02",
+        "CAT03-03",
+        "CAT04-01",
+        "CAT04-02",
+        "CAT05-01",
+        "CAT05-02"
+      ]
+    },
+    {
+      "nombre": "subcategory_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 14,
+      "valores": [
+        "ACHOCOLATADOS",
+        "BOMBONES",
+        "CARAMELOS DUROS",
+        "CHICLES",
+        "GALLETAS DULCES",
+        "GALLETAS RELLENAS",
+        "GALLETAS SALADAS",
+        "NO ASIGNADO",
+        "PASTILLAS DE MENTA",
+        "POSTRES EN POLVO",
+        "QUESO CREMA",
+        "REFRESCOS EN POLVO",
+        "SNACKS DE CHOCOLATE",
+        "TABLETAS"
+      ]
+    },
+    {
+      "nombre": "category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "#",
+        "CAT01",
+        "CAT02",
+        "CAT03",
+        "CAT04",
+        "CAT05"
+      ]
+    },
+    {
+      "nombre": "category_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "BEBIDAS EN POLVO",
+        "CARAMELOS Y CHICLES",
+        "CHOCOLATES",
+        "GALLETAS",
+        "NO ASIGNADO",
+        "QUESOS Y POSTRES"
+      ]
+    },
+    {
+      "nombre": "category_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "#",
+        "GC10",
+        "GC20",
+        "GC30",
+        "GC40",
+        "GC50"
+      ]
+    },
+    {
+      "nombre": "categoryid_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "NO ASIGNADO",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "groupid",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "#",
+        "G1",
+        "G2",
+        "G3"
+      ]
+    },
+    {
+      "nombre": "groupid_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "BEBIDAS Y ABARROTES",
+        "DULCES",
+        "HORNEADOS",
+        "NO ASIGNADO"
+      ]
+    },
+    {
+      "nombre": "top_level",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "#",
+        "TL1",
+        "TL2"
+      ]
+    },
+    {
+      "nombre": "toplevel_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "NO ASIGNADO",
+        "OTROS ALIMENTOS",
+        "SNACKS"
+      ]
+    },
+    {
+      "nombre": "jerarquia_local_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "#",
+        "JL-CAT01-SG1",
+        "JL-CAT01-SG2",
+        "JL-CAT02-SG1",
+        "JL-CAT02-SG2",
+        "JL-CAT03-SG1",
+        "JL-CAT03-SG2",
+        "JL-CAT04-SG1",
+        "JL-CAT04-SG2",
+        "JL-CAT05-SG1",
+        "JL-CAT05-SG2"
+      ]
+    },
+    {
+      "nombre": "jerarquia_local_desc",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 11,
+      "valores": [
+        "BEBIDAS EN POLVO MAINSTREAM",
+        "BEBIDAS EN POLVO PREMIUM",
+        "CARAMELOS Y CHICLES MAINSTREAM",
+        "CARAMELOS Y CHICLES PREMIUM",
+        "CHOCOLATES MAINSTREAM",
+        "CHOCOLATES PREMIUM",
+        "GALLETAS MAINSTREAM",
+        "GALLETAS PREMIUM",
+        "NO ASIGNADO",
+        "QUESOS Y POSTRES MAINSTREAM",
+        "QUESOS Y POSTRES PREMIUM"
+      ]
+    },
+    {
+      "nombre": "BQ_INGEST_TIMESTAMP",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "SRC_FILENAME",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "producto_maestro_20261005.csv"
+      ]
+    },
+    {
+      "nombre": "UUID",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    }
+  ],
+  "tabla:raw.dim_promo": [
+    {
+      "nombre": "dimid_prm_nprm_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "-1",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "nombre": "dimid_prm_nprm_id_nk",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "#",
+        "NPR",
+        "PRM"
+      ]
+    },
+    {
+      "nombre": "description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "No asignado",
+        "No promocional",
+        "Promocional"
+      ]
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 3,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "MDM"
+      ]
+    }
+  ],
+  "tabla:raw.dim_scenario": [
+    {
+      "nombre": "dimid_scenario_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "dimid_scenario_code_nk",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AC",
+        "BU",
+        "JF",
+        "LF",
+        "PY",
+        "SF"
+      ]
+    },
+    {
+      "nombre": "scenario_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Actual (real)",
+        "Budget (presupuesto anual)",
+        "June Forecast (forecast de junio)",
+        "Latest Forecast (último forecast)",
+        "Prior Year (real año anterior)",
+        "September Forecast (forecast de septiembre)"
+      ]
+    },
+    {
+      "nombre": "aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "NO_SUMAR"
+      ]
+    },
+    {
+      "nombre": "flag_real",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "nombre": "flag_plan",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "nombre": "parent",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "FORECAST",
+        "PLAN",
+        "REAL"
+      ]
+    },
+    {
+      "nombre": "level_01",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "ALL"
+      ]
+    },
+    {
+      "nombre": "level_01_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "TODOS LOS ESCENARIOS"
+      ]
+    },
+    {
+      "nombre": "level_01_aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "NO_SUMAR"
+      ]
+    },
+    {
+      "nombre": "level_02",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "FORECAST",
+        "PLAN",
+        "REAL"
+      ]
+    },
+    {
+      "nombre": "level_02_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "Datos reales",
+        "Presupuesto",
+        "Proyecciones"
+      ]
+    },
+    {
+      "nombre": "level_02_aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "NO_SUMAR"
+      ]
+    },
+    {
+      "nombre": "level_03",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AC",
+        "BU",
+        "JF",
+        "LF",
+        "PY",
+        "SF"
+      ]
+    },
+    {
+      "nombre": "level_03_description",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "Actual (real)",
+        "Budget (presupuesto anual)",
+        "June Forecast (forecast de junio)",
+        "Latest Forecast (último forecast)",
+        "Prior Year (real año anterior)",
+        "September Forecast (forecast de septiembre)"
+      ]
+    },
+    {
+      "nombre": "level_03_aggregation",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "NO_SUMAR"
+      ]
+    },
+    {
+      "nombre": "level",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "3"
+      ]
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 6,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "PLANNING_TOOL"
+      ]
+    }
+  ],
+  "tabla:raw.dim_time": [
+    {
+      "nombre": "dimid_time",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "period",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12"
+      ]
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "ERP"
+      ]
+    }
+  ],
+  "tabla:raw.fct_revenue": [
+    {
+      "nombre": "dimid_account_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "1001",
+        "1002",
+        "1003",
+        "1004",
+        "1005",
+        "1006",
+        "1007",
+        "1008",
+        "1009"
+      ]
+    },
+    {
+      "nombre": "dimid_scenario_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "dimid_time",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "dimid_entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "21",
+        "22",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "dimid_product_sku",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_customer_id",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 80,
+      "valores": []
+    },
+    {
+      "nombre": "dimid_channel_code",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "nombre": "dimid_audit_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "nombre": "dimid_prm_nprm_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "-1",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "nombre": "dimid_document",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "10",
+        "20"
+      ]
+    },
+    {
+      "nombre": "dimid_base_id",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "nombre": "amount_lc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48449,
+      "valores": []
+    },
+    {
+      "nombre": "amount_rc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48387,
+      "valores": []
+    },
+    {
+      "nombre": "amount_ac",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53411,
+      "valores": []
+    },
+    {
+      "nombre": "amount_py",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53433,
+      "valores": []
+    },
+    {
+      "nombre": "amount_cf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53427,
+      "valores": []
+    },
+    {
+      "nombre": "amount_pf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfjun",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53428,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfsep",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_timestamp",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 28,
+      "valores": []
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 73042,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "ERP",
+        "PLANNING_TOOL"
+      ]
+    },
+    {
+      "nombre": "Area",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "REVENUE",
+        "VOLUME"
+      ]
+    }
+  ],
+  "tabla:raw.manual_be_hq_latam": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "GROSS_REVENUE",
+        "NET_REVENUE",
+        "VOLUME_TON"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 21,
+      "valores": [
+        "AR01",
+        "BO01",
+        "BR01",
+        "BR02",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "LX01",
+        "MX01",
+        "MX02",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "PY01",
+        "SV01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "AC_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1512,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2014,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2013,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2015,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2015,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2012,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2013,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2013,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2015,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2016,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2015,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2015,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2015,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 2016,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "tabla:raw.stock_mv_si_so": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 20,
+      "valores": [
+        "AR01",
+        "BO01",
+        "BR01",
+        "BR02",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "MX01",
+        "MX02",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "PY01",
+        "SV01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1821,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1822,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1823,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1823,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1822,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1824,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1821,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1821,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1822,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1824,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1825,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1825,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 2160,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "tabla:raw.stock_os_si_so": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 20,
+      "valores": [
+        "AR01",
+        "BO01",
+        "BR01",
+        "BR02",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "MX01",
+        "MX02",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "PY01",
+        "SV01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 3071,
+      "valores": []
+    },
+    {
+      "nombre": "PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 3477,
+      "valores": []
+    },
+    {
+      "nombre": "SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1826,
+      "valores": []
+    },
+    {
+      "nombre": "JF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1826,
+      "valores": []
+    },
+    {
+      "nombre": "LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1826,
+      "valores": []
+    },
+    {
+      "nombre": "PY_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 3477,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 4320,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_manual_be_andina_ca": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "GROSS_REVENUE",
+        "NET_REVENUE",
+        "VOLUME_TON"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 14,
+      "valores": [
+        "BO01",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "LX01",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "SV01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "AC_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 918,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1222,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1221,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1223,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1223,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1220,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1223,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1222,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1224,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1224,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1223,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1224,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1224,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 1224,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_manual_be_brasil": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "GROSS_REVENUE",
+        "NET_REVENUE",
+        "VOLUME_TON"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "BR01",
+        "BR02"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "AC_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 189,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_manual_be_cono_sur": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "GROSS_REVENUE",
+        "NET_REVENUE",
+        "VOLUME_TON"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "AR01",
+        "PY01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "AC_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 216,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 288,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_manual_be_mexico": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "GROSS_REVENUE",
+        "NET_REVENUE",
+        "VOLUME_TON"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "MX01",
+        "MX02"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "AC_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 189,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 252,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_revenue_model": [
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 28,
+      "valores": []
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 73042,
+      "valores": []
+    },
+    {
+      "nombre": "account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 9,
+      "valores": [
+        "4100100",
+        "4100200",
+        "4200100",
+        "4200200",
+        "4210100",
+        "4210200",
+        "4300100",
+        "4400100",
+        "9100100"
+      ]
+    },
+    {
+      "nombre": "version",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AC",
+        "BU",
+        "JF",
+        "LF",
+        "PY",
+        "SF"
+      ]
+    },
+    {
+      "nombre": "date",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 22,
+      "valores": [
+        "AR01",
+        "BO01",
+        "BR01",
+        "BR02",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "HQ01",
+        "LX01",
+        "MX01",
+        "MX02",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "PY01",
+        "SV01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "product",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 62,
+      "valores": []
+    },
+    {
+      "nombre": "customer",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 80,
+      "valores": []
+    },
+    {
+      "nombre": "channel",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 10,
+      "valores": [
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH04",
+        "CH05",
+        "CH06",
+        "CH07",
+        "CH08",
+        "CH09",
+        "CH10"
+      ]
+    },
+    {
+      "nombre": "audit_trail",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 6,
+      "valores": [
+        "AT01",
+        "AT02",
+        "AT03",
+        "AT04",
+        "AT05",
+        "AT06"
+      ]
+    },
+    {
+      "nombre": "prm",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "#",
+        "NPR",
+        "PRM"
+      ]
+    },
+    {
+      "nombre": "uom",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "CUR",
+        "KG"
+      ]
+    },
+    {
+      "nombre": "base",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "B01",
+        "B02"
+      ]
+    },
+    {
+      "nombre": "amount_lc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48449,
+      "valores": []
+    },
+    {
+      "nombre": "amount_rc",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 48387,
+      "valores": []
+    },
+    {
+      "nombre": "amount_ac",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53411,
+      "valores": []
+    },
+    {
+      "nombre": "amount_py",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53433,
+      "valores": []
+    },
+    {
+      "nombre": "amount_cf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53427,
+      "valores": []
+    },
+    {
+      "nombre": "amount_pf",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfjun",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53428,
+      "valores": []
+    },
+    {
+      "nombre": "amount_mfsep",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 53424,
+      "valores": []
+    },
+    {
+      "nombre": "source_system",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "ERP",
+        "PLANNING_TOOL"
+      ]
+    }
+  ],
+  "vista:staging.v_stock_mv_si_so_andina_ca": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 13,
+      "valores": [
+        "BO01",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "SV01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1106,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1108,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1108,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1107,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1108,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1107,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1106,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1106,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1108,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1108,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1109,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1108,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 1248,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_stock_mv_si_so_brasil": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "BR01",
+        "BR02"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 240,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_stock_mv_si_so_cono_sur": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "AR01",
+        "PY01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 321,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 321,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 321,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 321,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 321,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 336,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_stock_mv_si_so_mexico": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "MX01",
+        "MX02"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "RF",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 1,
+      "valores": [
+        "2026_RF3"
+      ]
+    },
+    {
+      "nombre": "MV_3_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_3_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_RPT",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "MV_2_at_AC_next_year",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 336,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_stock_os_si_so_andina_ca": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 13,
+      "valores": [
+        "BO01",
+        "CL01",
+        "CO01",
+        "CR01",
+        "DO01",
+        "EC01",
+        "GT01",
+        "HN01",
+        "NI01",
+        "PA01",
+        "PE01",
+        "PR01",
+        "SV01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1855,
+      "valores": []
+    },
+    {
+      "nombre": "PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2091,
+      "valores": []
+    },
+    {
+      "nombre": "SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1109,
+      "valores": []
+    },
+    {
+      "nombre": "JF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1109,
+      "valores": []
+    },
+    {
+      "nombre": "LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 1109,
+      "valores": []
+    },
+    {
+      "nombre": "PY_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 2091,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 2496,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_stock_os_si_so_brasil": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "BR01",
+        "BR02"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 400,
+      "valores": []
+    },
+    {
+      "nombre": "PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 455,
+      "valores": []
+    },
+    {
+      "nombre": "SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "JF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 233,
+      "valores": []
+    },
+    {
+      "nombre": "PY_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 455,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 480,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_stock_os_si_so_cono_sur": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 3,
+      "valores": [
+        "AR01",
+        "PY01",
+        "UY01"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 550,
+      "valores": []
+    },
+    {
+      "nombre": "PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 622,
+      "valores": []
+    },
+    {
+      "nombre": "SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "JF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 322,
+      "valores": []
+    },
+    {
+      "nombre": "PY_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 622,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 672,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ],
+  "vista:staging.v_stock_os_si_so_mexico": [
+    {
+      "nombre": "Year",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "nombre": "Account",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 4,
+      "valores": [
+        "DIAS_INVENTARIO",
+        "SELL_IN",
+        "SELL_OUT",
+        "STOCK_CANAL"
+      ]
+    },
+    {
+      "nombre": "Entity",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 2,
+      "valores": [
+        "MX01",
+        "MX02"
+      ]
+    },
+    {
+      "nombre": "Category",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 5,
+      "valores": [
+        "BISCUITS",
+        "CHEESE & GROCERY",
+        "CHOCOLATE",
+        "GUM & CANDY",
+        "POWDERED BEVERAGES"
+      ]
+    },
+    {
+      "nombre": "Month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 12,
+      "valores": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "nombre": "AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 554,
+      "valores": []
+    },
+    {
+      "nombre": "PY",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 626,
+      "valores": []
+    },
+    {
+      "nombre": "SF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "JF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "LF",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 325,
+      "valores": []
+    },
+    {
+      "nombre": "PY_at_AC",
+      "tipo_de_contenido": "medida",
+      "cantidad_valores_distintos": 626,
+      "valores": []
+    },
+    {
+      "nombre": "year_month",
+      "tipo_de_contenido": "categoria",
+      "cantidad_valores_distintos": 24,
+      "valores": [
+        "202501",
+        "202502",
+        "202503",
+        "202504",
+        "202505",
+        "202506",
+        "202507",
+        "202508",
+        "202509",
+        "202510",
+        "202511",
+        "202512",
+        "202601",
+        "202602",
+        "202603",
+        "202604",
+        "202605",
+        "202606",
+        "202607",
+        "202608",
+        "202609",
+        "202610",
+        "202611",
+        "202612"
+      ]
+    },
+    {
+      "nombre": "uuid",
+      "tipo_de_contenido": "unico",
+      "cantidad_valores_distintos": 672,
+      "valores": []
+    },
+    {
+      "nombre": "bq_ingest_date",
+      "tipo_de_contenido": "fecha",
+      "cantidad_valores_distintos": 1,
+      "valores": []
+    }
+  ]
+}

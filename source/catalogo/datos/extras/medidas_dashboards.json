@@ -1,0 +1,294 @@
+{
+  "dashboard:powerbi.media_lab_tech_hackathon_forecast_vs_budget": [
+    {
+      "nombre": "NR Base",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_rc]),\n    dim_account[level_02] = \"NR\", dim_channel[level_03] <> \"ICO\")"
+    },
+    {
+      "nombre": "NR Real",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"AC\")"
+    },
+    {
+      "nombre": "NR Año Anterior",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"PY\",\n    KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "NR Budget",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"BU\")"
+    },
+    {
+      "nombre": "NR Forecast",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"LF\")"
+    },
+    {
+      "nombre": "Var vs Año Anterior %",
+      "formula": "DIVIDE([NR Real] - [NR Año Anterior], [NR Año Anterior])"
+    },
+    {
+      "nombre": "Var LF vs BU %",
+      "formula": "DIVIDE([NR Forecast] - [NR Budget], [NR Budget])"
+    },
+    {
+      "nombre": "Volumen TN",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_lc]),\n    v_revenue_snapshot[area] = \"VOLUME\", v_revenue_snapshot[scenario_id] = \"AC\") / 1000"
+    },
+    {
+      "nombre": "NR Budget Comparable",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Budget], KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "Var vs Budget %",
+      "formula": "DIVIDE([NR Real] - [NR Budget Comparable], [NR Budget Comparable])"
+    },
+    {
+      "nombre": "Brecha LF vs BU",
+      "formula": "[NR Forecast] - [NR Budget]"
+    },
+    {
+      "nombre": "Avance Real vs Budget %",
+      "formula": "DIVIDE([NR Real], [NR Budget])"
+    },
+    {
+      "nombre": "NR Forecast Proyectado",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Forecast], KEEPFILTERS(dim_time[dimid_time] >= UltimoReal))"
+    },
+    {
+      "nombre": "Gross Revenue",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"GR\")"
+    },
+    {
+      "nombre": "Descuentos Totales",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"G2N\")"
+    },
+    {
+      "nombre": "Gross to Net %",
+      "formula": "DIVIDE([NR Real] - [Gross Revenue], [Gross Revenue])"
+    },
+    {
+      "nombre": "% sobre Venta Bruta",
+      "formula": "DIVIDE([NR Real], CALCULATE([Gross Revenue], REMOVEFILTERS(dim_account)))"
+    }
+  ],
+  "dashboard:powerbi.media_lab_tech_hackathon_gross_the_net": [
+    {
+      "nombre": "NR Base",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_rc]),\n    dim_account[level_02] = \"NR\", dim_channel[level_03] <> \"ICO\")"
+    },
+    {
+      "nombre": "NR Real",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"AC\")"
+    },
+    {
+      "nombre": "NR Año Anterior",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"PY\",\n    KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "NR Budget",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"BU\")"
+    },
+    {
+      "nombre": "NR Forecast",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"LF\")"
+    },
+    {
+      "nombre": "Var vs Año Anterior %",
+      "formula": "DIVIDE([NR Real] - [NR Año Anterior], [NR Año Anterior])"
+    },
+    {
+      "nombre": "Var LF vs BU %",
+      "formula": "DIVIDE([NR Forecast] - [NR Budget], [NR Budget])"
+    },
+    {
+      "nombre": "Volumen TN",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_lc]),\n    v_revenue_snapshot[area] = \"VOLUME\", v_revenue_snapshot[scenario_id] = \"AC\") / 1000"
+    },
+    {
+      "nombre": "NR Budget Comparable",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Budget], KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "Var vs Budget %",
+      "formula": "DIVIDE([NR Real] - [NR Budget Comparable], [NR Budget Comparable])"
+    },
+    {
+      "nombre": "Brecha LF vs BU",
+      "formula": "[NR Forecast] - [NR Budget]"
+    },
+    {
+      "nombre": "Avance Real vs Budget %",
+      "formula": "DIVIDE([NR Real], [NR Budget])"
+    },
+    {
+      "nombre": "NR Forecast Proyectado",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Forecast], KEEPFILTERS(dim_time[dimid_time] >= UltimoReal))"
+    },
+    {
+      "nombre": "Gross Revenue",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"GR\")"
+    },
+    {
+      "nombre": "Descuentos Totales",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"G2N\")"
+    },
+    {
+      "nombre": "Gross to Net %",
+      "formula": "DIVIDE([NR Real] - [Gross Revenue], [Gross Revenue])"
+    },
+    {
+      "nombre": "% sobre Venta Bruta",
+      "formula": "DIVIDE([NR Real], CALCULATE([Gross Revenue], REMOVEFILTERS(dim_account)))"
+    }
+  ],
+  "dashboard:powerbi.media_lab_tech_hackathon_marcas_y_categorias": [
+    {
+      "nombre": "NR Base",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_rc]),\n    dim_account[level_02] = \"NR\", dim_channel[level_03] <> \"ICO\")"
+    },
+    {
+      "nombre": "NR Real",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"AC\")"
+    },
+    {
+      "nombre": "NR Año Anterior",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"PY\",\n    KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "NR Budget",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"BU\")"
+    },
+    {
+      "nombre": "NR Forecast",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"LF\")"
+    },
+    {
+      "nombre": "Var vs Año Anterior %",
+      "formula": "DIVIDE([NR Real] - [NR Año Anterior], [NR Año Anterior])"
+    },
+    {
+      "nombre": "Var LF vs BU %",
+      "formula": "DIVIDE([NR Forecast] - [NR Budget], [NR Budget])"
+    },
+    {
+      "nombre": "Volumen TN",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_lc]),\n    v_revenue_snapshot[area] = \"VOLUME\", v_revenue_snapshot[scenario_id] = \"AC\") / 1000"
+    },
+    {
+      "nombre": "NR Budget Comparable",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Budget], KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "Var vs Budget %",
+      "formula": "DIVIDE([NR Real] - [NR Budget Comparable], [NR Budget Comparable])"
+    },
+    {
+      "nombre": "Brecha LF vs BU",
+      "formula": "[NR Forecast] - [NR Budget]"
+    },
+    {
+      "nombre": "Avance Real vs Budget %",
+      "formula": "DIVIDE([NR Real], [NR Budget])"
+    },
+    {
+      "nombre": "NR Forecast Proyectado",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Forecast], KEEPFILTERS(dim_time[dimid_time] >= UltimoReal))"
+    },
+    {
+      "nombre": "Gross Revenue",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"GR\")"
+    },
+    {
+      "nombre": "Descuentos Totales",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"G2N\")"
+    },
+    {
+      "nombre": "Gross to Net %",
+      "formula": "DIVIDE([NR Real] - [Gross Revenue], [Gross Revenue])"
+    },
+    {
+      "nombre": "% sobre Venta Bruta",
+      "formula": "DIVIDE([NR Real], CALCULATE([Gross Revenue], REMOVEFILTERS(dim_account)))"
+    },
+    {
+      "nombre": "Marca Lider",
+      "formula": "MAXX(TOPN(1, VALUES(dim_product_hierarchy[marca_desc]), [NR Real]), dim_product_hierarchy[marca_desc])"
+    },
+    {
+      "nombre": "Venta Innovacion",
+      "formula": "CALCULATE([NR Real], v_revenue_snapshot[base_id] = \"B02\")"
+    },
+    {
+      "nombre": "% Innovacion",
+      "formula": "DIVIDE([Venta Innovacion], [NR Real])"
+    }
+  ],
+  "dashboard:powerbi.media_lab_tech_hackathon_resumen_ejecutivo": [
+    {
+      "nombre": "NR Base",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_rc]),\n    dim_account[level_02] = \"NR\", dim_channel[level_03] <> \"ICO\")"
+    },
+    {
+      "nombre": "NR Real",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"AC\")"
+    },
+    {
+      "nombre": "NR Año Anterior",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"PY\",\n    KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "NR Budget",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"BU\")"
+    },
+    {
+      "nombre": "NR Forecast",
+      "formula": "CALCULATE([NR Base], v_revenue_snapshot[scenario_id] = \"LF\")"
+    },
+    {
+      "nombre": "Var vs Año Anterior %",
+      "formula": "DIVIDE([NR Real] - [NR Año Anterior], [NR Año Anterior])"
+    },
+    {
+      "nombre": "Var LF vs BU %",
+      "formula": "DIVIDE([NR Forecast] - [NR Budget], [NR Budget])"
+    },
+    {
+      "nombre": "Volumen TN",
+      "formula": "CALCULATE(SUM(v_revenue_snapshot[amount_lc]),\n    v_revenue_snapshot[area] = \"VOLUME\", v_revenue_snapshot[scenario_id] = \"AC\") / 1000"
+    },
+    {
+      "nombre": "NR Budget Comparable",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Budget], KEEPFILTERS(dim_time[dimid_time] <= UltimoReal))"
+    },
+    {
+      "nombre": "Var vs Budget %",
+      "formula": "DIVIDE([NR Real] - [NR Budget Comparable], [NR Budget Comparable])"
+    },
+    {
+      "nombre": "Brecha LF vs BU",
+      "formula": "[NR Forecast] - [NR Budget]"
+    },
+    {
+      "nombre": "Avance Real vs Budget %",
+      "formula": "DIVIDE([NR Real], [NR Budget])"
+    },
+    {
+      "nombre": "NR Forecast Proyectado",
+      "formula": "\nVAR UltimoReal = CALCULATE(MAX(v_revenue_snapshot[dimid_time]),\n    v_revenue_snapshot[scenario_id] = \"AC\", REMOVEFILTERS())\nRETURN CALCULATE([NR Forecast], KEEPFILTERS(dim_time[dimid_time] >= UltimoReal))"
+    },
+    {
+      "nombre": "Gross Revenue",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"GR\")"
+    },
+    {
+      "nombre": "Descuentos Totales",
+      "formula": "CALCULATE([NR Real], dim_account[level_03] = \"G2N\")"
+    },
+    {
+      "nombre": "Gross to Net %",
+      "formula": "DIVIDE([NR Real] - [Gross Revenue], [Gross Revenue])"
+    },
+    {
+      "nombre": "% sobre Venta Bruta",
+      "formula": "DIVIDE([NR Real], CALCULATE([Gross Revenue], REMOVEFILTERS(dim_account)))"
+    }
+  ]
+}
