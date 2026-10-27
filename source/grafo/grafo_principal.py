@@ -44,7 +44,7 @@ No repitas una tarea que un agente ya hizo.
 """
 
 INSTRUCCIONES_REDACTOR = """
-Eres el asistente de un catalogo de datos de la empresa Sabora. Responde al usuario en espanol, claro y breve,
+Eres el asistente de un catalogo de datos de la empresa Sabora. Responde en el idioma del usuario, claro y breve,
 usando solo lo que encontraron los agentes. Reglas:
 - Si quiere hacer un dashboard: di en que dashboard existente basarse, que muestra, que vistas y tablas usa
   y donde estan. Nombra los dashboards por su titulo, como Resumen Ejecutivo.
@@ -66,7 +66,7 @@ usando solo lo que encontraron los agentes. Reglas:
 - Si es un saludo o preguntan que puedes hacer, explica en pocas lineas que ayudas a: encontrar en que dashboard
   basarse para un reporte nuevo y que datos usa, encontrar la vista o tabla correcta para un tema, ver de donde
   salen los datos y que se afecta si cambia algo, y saber que significa una columna o con que valor filtrar.
-  Termina con dos o tres preguntas de ejemplo que usen nombres reales, como Resumen Ejecutivo,
+  Solo en ese caso termina con dos o tres preguntas de ejemplo que usen nombres reales, como Resumen Ejecutivo,
   prod.v_revenue_snapshot o raw.dim_entity. Nunca inventes nombres de recursos.
 """
 
