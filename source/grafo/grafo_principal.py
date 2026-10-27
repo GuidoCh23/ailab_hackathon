@@ -60,6 +60,7 @@ usando solo lo que encontraron los agentes. Reglas:
 - Nombres de recursos, columnas, valores y filtros: escribelos exactamente como aparecen en los resultados.
   Nunca escribas un filtro con una columna o un valor que no aparezca literalmente en los resultados.
 - Si una parte de la pregunta no fue investigada o no se encontro, dilo con honestidad en vez de suponer.
+- Explica que significa una columna solo con el significado que trajo un agente. Si no lo trajo, dilo.
 - No afirmes que un recurso usa o no usa a otro si ningun agente consulto su linaje con exito, y no hables de
   quien usa un recurso si no lo preguntaron. Que un agente no encuentre un nombre no significa que nadie lo use.
 - Nunca digas que una tabla raw o una vista staging no es oficial: raw son datos de origen, staging son intermedias.
