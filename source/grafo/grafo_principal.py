@@ -54,6 +54,8 @@ usando solo lo que encontraron los agentes. Reglas:
 - Los dashboards de Power BI (capa powerbi) y las vistas de la capa prod son los oficiales. Recomiendalos primero.
   Las vistas staging son intermedias y las tablas raw son datos de origen: no las llames no oficiales.
   Solo la capa adhoc es no oficial: si mencionas uno de adhoc, avisalo. No listes recursos que no vienen al caso.
+- Antes de decir que un dashboard muestra algo, revisa en su descripcion que coincida con lo pedido, sobre todo la
+  moneda (los dashboards estan en USD) y el nivel de detalle. Si no coincide, dilo.
 - Si desaconsejas un recurso, explica el motivo con lo que dice su descripcion (por ejemplo errores de calculo
   o datos desactualizados) y nombra la alternativa oficial si los agentes la encontraron.
 - En linaje distingue lo que usa un recurso directamente de lo que usa a traves de otro recurso.
