@@ -15,22 +15,28 @@ from herramientas.herramientas_detalle import detectar_valores_mencionados
 
 MAXIMO_DE_PASOS = 8
 CANTIDAD_DE_MENSAJES_DE_HISTORIAL = 6
+MAXIMO_VECES_POR_AGENTE = 2
 
 INSTRUCCIONES_ORQUESTADOR = """
 Eres el orquestador de un chatbot que ayuda a encontrar dashboards, vistas y tablas de datos de la empresa
-Sabora, y a entender de donde salen sus datos. Decides que agente trabaja en cada paso:
+Sabora, y a entender de donde salen sus datos. Decides que agente trabaja en cada paso.
+Regla principal: si el usuario quiere hacer, buscar o basarse en un dashboard o reporte, el primer paso
+es siempre buscador, aunque la pregunta mencione valores como presupuesto, un pais o un canal.
 - buscador: encuentra dashboards, vistas o tablas por tema o por nombre. Empieza por aqui cuando el usuario
   quiere hacer un dashboard o busca datos sobre algo y aun no se sabe que recurso es.
-- linaje: da la ficha de un recurso, de que lee, quien lo usa y su SQL. Necesita el nombre exacto del recurso,
-  como prod.v_revenue_snapshot o raw.dim_entity: si aun no lo conoces, primero usa buscador.
+- linaje: da la ficha de un recurso, de que lee, quien lo usa y su SQL. Usalo para preguntas de impacto
+  (si cambio o modifico algo, que se afecta, quien lo usa) y de origen (de donde salen los datos).
+  Acepta el nombre del recurso aunque sea corto, como dim_entity o Gross to Net; si el usuario no da
+  ningun nombre, primero usa buscador.
 - detalle: cuando el usuario menciona una columna, un atributo o un valor especifico
   (un canal, un pais, una moneda, una cuenta, un cliente), pregunta con que valor filtrar
   o que significa una columna. Ejemplos: donde esta el canal tradicional, que valores tiene escenario.
 - responder: solo cuando los resultados cubren todas las partes de la pregunta, o cuando es un saludo.
 Si te indican valores de categorias mencionados en la pregunta y el usuario pregunta por ese valor o como filtrarlo,
-busca algo especifico: usa detalle.
+busca algo especifico: usa detalle. Si solo los menciona como contexto, son una pista y nada mas.
 Si la pregunta tiene varias partes, encarga cada parte al agente que corresponde antes de responder.
 Da al agente una instruccion concreta, con los nombres exactos de recursos que ya se conocen.
+Los agentes no hablan con el usuario: si falta un dato del usuario, elige responder y que la respuesta lo pida.
 No repitas una tarea que un agente ya hizo.
 """
 
@@ -42,6 +48,7 @@ usando solo lo que encontraron los agentes. Reglas:
 - Los dashboards de Power BI (capa powerbi) y las vistas de la capa prod son los oficiales. Recomiendalos primero.
   Si mencionas uno de adhoc, avisa que no es oficial.
 - En linaje distingue lo que usa un recurso directamente de lo que usa a traves de otro recurso.
+  Si preguntan que se afecta o quien usa algo, lista todos los recursos por nombre, tambien los no oficiales.
 - Escribe las vistas y tablas con su capa, como prod.v_revenue_snapshot, y listalas siempre por nombre.
   Lo unico que no escribes son los links: se agregan solos al final de la respuesta.
 - Nombres de recursos, columnas, valores y filtros: escribelos exactamente como aparecen en los resultados.
@@ -155,8 +162,11 @@ def crear_nodo_redactor():
 
 
 def elegir_siguiente_nodo(estado):
-    # Corta el ciclo si el orquestador da demasiadas vueltas
-    if estado["siguiente_agente"] == "responder" or estado["cantidad_de_pasos"] >= MAXIMO_DE_PASOS:
+    # Corta el ciclo si el orquestador da demasiadas vueltas o insiste con el mismo agente
+    veces_del_agente = sum(1 for resultado in estado["resultados_de_agentes"]
+                           if resultado["agente"] == estado["siguiente_agente"])
+    if (estado["siguiente_agente"] == "responder" or estado["cantidad_de_pasos"] >= MAXIMO_DE_PASOS
+            or veces_del_agente >= MAXIMO_VECES_POR_AGENTE):
         return "redactor"
     return estado["siguiente_agente"]
 
