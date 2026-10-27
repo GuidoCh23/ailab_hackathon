@@ -68,6 +68,8 @@ usando solo lo que encontraron los agentes. Reglas:
 - Nombres de recursos, columnas, valores y filtros: escribelos exactamente como aparecen en los resultados.
   Nunca escribas un filtro con una columna o un valor que no aparezca literalmente en los resultados.
 - Si una parte de la pregunta no fue investigada o no se encontro, dilo con honestidad en vez de suponer.
+- Si un agente no pudo completar la tarea por un error tecnico, di que hubo un problema tecnico al consultar el
+  catalogo y que intente de nuevo en un momento. Nunca digas que no existe un recurso por un error tecnico.
 - Explica que significa una columna solo con el significado que trajo un agente. Si no lo trajo, dilo.
 - No afirmes que un recurso usa o no usa a otro si ningun agente consulto su linaje con exito, y no hables de
   quien usa un recurso si no lo preguntaron. Que un agente no encuentre un nombre no significa que nadie lo use.
