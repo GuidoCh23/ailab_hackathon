@@ -1,0 +1,435 @@
+{
+  "vista:prod.v_revenue_snapshot": {
+    "descripcion": "Es la vista oficial de ventas de Sabora y la que consumen los dashboards de Power BI: con ella se calcula la venta neta (Net Revenue) total de LATAM o por año, mes, unidad de negocio, país, marca, categoría, cliente o canal, el crecimiento contra el año anterior (a tipo de cambio real o constante), la comparación del real contra el presupuesto y los forecasts, y el volumen en toneladas. Une la tabla de ventas con todas sus dimensiones, así que cada fila ya trae los nombres de cuenta, escenario, mes, entidad, producto, cliente, canal, auditoría, promoción, base y unidad de medida, además de los ocho montos (moneda local y USD a distintas tasas). Contiene todos los escenarios, todas las monedas y también las filas de volumen: para obtener una venta hay que filtrar un escenario (scenario_id), usar el monto en USD que corresponda (amount_rc) y filtrar area = REVENUE. La fecha y versión del snapshot (MV2026-09, 5 de octubre de 2026) están escritas fijas en el SQL. Es el punto de partida recomendado para cualquier reporte o cifra de ventas.",
+    "preguntas_que_responde": [
+      "¿Cuál es la vista oficial de ventas para hacer un reporte o dashboard?",
+      "¿Cuánto fue la venta neta total de LATAM en un año?",
+      "¿Cuánto crecimos contra el año anterior, a tipo de cambio real o constante?",
+      "¿Cómo va el real o el último forecast contra el presupuesto por unidad de negocio?",
+      "¿Cuáles son las marcas, países o clientes que más venden?",
+      "¿Cuánto volumen en toneladas se vendió?",
+      "¿De qué snapshot o versión son los datos oficiales?"
+    ],
+    "terminos_de_negocio": [
+      "vista oficial",
+      "official view",
+      "ventas",
+      "revenue",
+      "net revenue",
+      "NR",
+      "venta neta total",
+      "LATAM",
+      "crecimiento",
+      "growth",
+      "año anterior",
+      "tipo de cambio constante",
+      "constant currency",
+      "presupuesto",
+      "budget",
+      "forecast",
+      "latest forecast",
+      "real",
+      "actual",
+      "unidad de negocio",
+      "marcas",
+      "volumen",
+      "toneladas",
+      "snapshot",
+      "reporte",
+      "dashboard",
+      "Power BI",
+      "fuente oficial",
+      "single source of truth",
+      "prod"
+    ]
+  },
+  "vista:staging.v_revenue_model": {
+    "descripcion": "Es una vista intermedia que toma la tabla de ventas y reemplaza las claves técnicas por los códigos de negocio: código de cuenta, escenario, mes, entidad, producto, cliente, canal, auditoría, promoción, unidad de medida y base, junto con los ocho montos y el sistema de origen. No trae las descripciones ni filtra nada, así que mezcla todos los escenarios y monedas. Sirve como base técnica para construir otras vistas, no para reportes directos: para eso está la vista oficial prod.v_revenue_snapshot.",
+    "preguntas_que_responde": [
+      "¿Dónde están las ventas con códigos de negocio en lugar de claves técnicas?",
+      "¿Qué vista intermedia sirve para construir otros modelos de ventas?",
+      "¿De qué sistema viene cada registro de venta?",
+      "¿Cómo se relacionan los códigos de cuenta, entidad y producto con los montos?",
+      "¿Qué diferencia hay con la vista oficial de ventas?"
+    ],
+    "terminos_de_negocio": [
+      "modelo de ventas",
+      "revenue model",
+      "staging",
+      "vista intermedia",
+      "códigos de negocio",
+      "llaves naturales",
+      "natural keys",
+      "ventas",
+      "montos",
+      "sistema de origen"
+    ]
+  },
+  "vista:adhoc.v_revenue_snapshot_bkp": {
+    "descripcion": "Es una copia de respaldo de la vista oficial de ventas, hecha por un analista, que quedó congelada en un ciclo anterior: su versión dice MV2026-06 y su fecha 6 de julio de 2026. Además no trae las columnas de promoción ni de base. Los datos son los mismos de la tabla de ventas, pero las etiquetas de versión son viejas. No es oficial: para reportes hay que usar prod.v_revenue_snapshot.",
+    "preguntas_que_responde": [
+      "¿Existe una copia de respaldo de la vista oficial de ventas?",
+      "¿Qué diferencia hay entre esta vista y la oficial?",
+      "¿De qué ciclo es este snapshot?",
+      "¿Puedo usar esta vista para un reporte?",
+      "¿Qué columnas le faltan respecto a la vista oficial?"
+    ],
+    "terminos_de_negocio": [
+      "respaldo",
+      "backup",
+      "copia",
+      "duplicado",
+      "snapshot antiguo",
+      "adhoc",
+      "no oficial",
+      "ventas",
+      "revenue"
+    ]
+  },
+  "vista:adhoc.v_venta_neta_peru_tmp": {
+    "descripcion": "Es una vista temporal creada por un analista que calcula la venta neta real de Perú por mes, en soles (moneda local). Suma las cuentas de Net Revenue del escenario real para la entidad de Perú (PE01) y agrupa por año y mes. Es útil para una consulta rápida de Perú en moneda local, pero no es oficial: tiene el escenario y la entidad escritos fijos en el SQL y no fue validada contra los reportes oficiales.",
+    "preguntas_que_responde": [
+      "¿Cuánto vendió Perú en soles cada mes?",
+      "¿Cuál es la venta neta real de Perú en moneda local?",
+      "¿Hay alguna vista con la venta de Perú ya calculada?",
+      "¿Cómo evolucionó la venta neta de Perú en 2025 y 2026?",
+      "¿Esta vista de Perú es oficial?"
+    ],
+    "terminos_de_negocio": [
+      "Perú",
+      "Peru",
+      "soles",
+      "PEN",
+      "venta neta",
+      "net revenue",
+      "moneda local",
+      "mensual",
+      "adhoc",
+      "temporal",
+      "no oficial"
+    ]
+  },
+  "vista:adhoc.v_nr_mensual_bu": {
+    "descripcion": "Es una vista creada por un analista que intenta dar la venta neta mensual por unidad de negocio (Brazil, Mexico, Soco, Wacam, HQ LATAM), pero tiene un error de cálculo: suma el monto en moneda local de todos los países (mezclando reales, pesos, soles y otras monedas) y no filtra escenario, así que también suma real, presupuesto y forecasts juntos. Sus cifras no sirven para reportar. No es oficial: para la venta por unidad de negocio hay que usar prod.v_revenue_snapshot con un solo escenario y el monto en USD.",
+    "preguntas_que_responde": [
+      "¿Hay una vista con la venta neta mensual por unidad de negocio?",
+      "¿Por qué esta vista da cifras distintas a los reportes oficiales?",
+      "¿Qué errores tiene la vista de NR mensual por BU?",
+      "¿Puedo usar esta vista para un reporte?",
+      "¿Qué vista debería usar en su lugar?"
+    ],
+    "terminos_de_negocio": [
+      "venta neta",
+      "net revenue",
+      "NR",
+      "unidad de negocio",
+      "BU",
+      "mensual",
+      "adhoc",
+      "no oficial",
+      "error",
+      "monedas mezcladas",
+      "escenarios mezclados"
+    ]
+  },
+  "vista:staging.v_manual_be_brasil": {
+    "descripcion": "Es el corte de Brasil del archivo manual de Best Estimate de HQ LATAM: trae solo las filas de las entidades de la región Brazil, con todas sus columnas sin cambios. Muestra el gross revenue, net revenue y volumen estimados para 2026 por categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Los montos están en miles de USD y el volumen en toneladas.",
+    "preguntas_que_responde": [
+      "¿Cuál es el Best Estimate de Brasil para 2026?",
+      "¿Cuánto se estima vender en Brasil por categoría?",
+      "¿Cómo cambió el estimado de Brasil entre junio y septiembre?",
+      "¿Dónde está el archivo manual de HQ filtrado para Brasil?",
+      "¿En qué unidades está el estimado de Brasil?"
+    ],
+    "terminos_de_negocio": [
+      "Brasil",
+      "Brazil",
+      "best estimate",
+      "BE",
+      "estimado",
+      "forecast manual",
+      "miles de USD",
+      "toneladas",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_manual_be_mexico": {
+    "descripcion": "Es el corte de México del archivo manual de Best Estimate de HQ LATAM: trae solo las filas de las entidades de la región Mexico, con todas sus columnas sin cambios. Muestra el gross revenue, net revenue y volumen estimados para 2026 por categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Los montos están en miles de USD y el volumen en toneladas.",
+    "preguntas_que_responde": [
+      "¿Cuál es el Best Estimate de México para 2026?",
+      "¿Cuánto se estima vender en México por categoría?",
+      "¿Cómo cambió el estimado de México entre junio y septiembre?",
+      "¿Dónde está el archivo manual de HQ filtrado para México?",
+      "¿En qué unidades está el estimado de México?"
+    ],
+    "terminos_de_negocio": [
+      "México",
+      "Mexico",
+      "best estimate",
+      "BE",
+      "estimado",
+      "forecast manual",
+      "miles de USD",
+      "toneladas",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_manual_be_cono_sur": {
+    "descripcion": "Es el corte de Cono Sur (Soco) del archivo manual de Best Estimate de HQ LATAM: trae solo las filas de las entidades de la región Soco, con todas sus columnas sin cambios. Muestra el gross revenue, net revenue y volumen estimados para 2026 por país, categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Los montos están en miles de USD y el volumen en toneladas.",
+    "preguntas_que_responde": [
+      "¿Cuál es el Best Estimate de Cono Sur para 2026?",
+      "¿Cuánto se estima vender en los países de Soco por categoría?",
+      "¿Cómo cambió el estimado de Cono Sur entre junio y septiembre?",
+      "¿Dónde está el archivo manual de HQ filtrado para Cono Sur?",
+      "¿En qué unidades está el estimado de Cono Sur?"
+    ],
+    "terminos_de_negocio": [
+      "Cono Sur",
+      "Soco",
+      "Argentina",
+      "Paraguay",
+      "Uruguay",
+      "best estimate",
+      "BE",
+      "estimado",
+      "forecast manual",
+      "miles de USD",
+      "toneladas",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_manual_be_andina_ca": {
+    "descripcion": "Es el corte de la región Andina y Centroamérica (Wacam) del archivo manual de Best Estimate de HQ LATAM: trae solo las filas de las entidades de la región Wacam, con todas sus columnas sin cambios. Muestra el gross revenue, net revenue y volumen estimados para 2026 por país, categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Los montos están en miles de USD y el volumen en toneladas.",
+    "preguntas_que_responde": [
+      "¿Cuál es el Best Estimate de la región Andina y Centroamérica para 2026?",
+      "¿Cuánto se estima vender en los países de Wacam por categoría?",
+      "¿Cómo cambió el estimado de Wacam entre junio y septiembre?",
+      "¿Dónde está el archivo manual de HQ filtrado para Andina y Centroamérica?",
+      "¿En qué unidades está el estimado de Wacam?"
+    ],
+    "terminos_de_negocio": [
+      "Andina",
+      "Centroamérica",
+      "Caribe",
+      "Wacam",
+      "Perú",
+      "Colombia",
+      "Chile",
+      "best estimate",
+      "BE",
+      "estimado",
+      "forecast manual",
+      "miles de USD",
+      "toneladas",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_os_si_so_brasil": {
+    "descripcion": "Es el corte de Brasil del archivo de stock del canal tradicional: trae solo las filas de las entidades de la región Brazil, sin cambios. Muestra sell-in, sell-out, stock en el canal y días de inventario por categoría global y mes de 2025 y 2026, en real, año anterior y forecasts. Está en USD completos. El stock y los días de inventario no se suman entre meses.",
+    "preguntas_que_responde": [
+      "¿Cuánto es el sell-in y sell-out de Brasil?",
+      "¿Cuánto stock en canal tiene Brasil?",
+      "¿Cuántos días de inventario hay en Brasil?",
+      "¿Cómo se compara el sell-out de Brasil con el año anterior?",
+      "¿Dónde está el stock filtrado para Brasil?"
+    ],
+    "terminos_de_negocio": [
+      "Brasil",
+      "Brazil",
+      "stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "USD",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_os_si_so_mexico": {
+    "descripcion": "Es el corte de México del archivo de stock del canal tradicional: trae solo las filas de las entidades de la región Mexico, sin cambios. Muestra sell-in, sell-out, stock en el canal y días de inventario por categoría global y mes de 2025 y 2026, en real, año anterior y forecasts. Está en USD completos. El stock y los días de inventario no se suman entre meses.",
+    "preguntas_que_responde": [
+      "¿Cuánto es el sell-in y sell-out de México?",
+      "¿Cuánto stock en canal tiene México?",
+      "¿Cuántos días de inventario hay en México?",
+      "¿Cómo se compara el sell-out de México con el año anterior?",
+      "¿Dónde está el stock filtrado para México?"
+    ],
+    "terminos_de_negocio": [
+      "México",
+      "Mexico",
+      "stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "USD",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_os_si_so_cono_sur": {
+    "descripcion": "Es el corte de Cono Sur (Soco) del archivo de stock del canal tradicional: trae solo las filas de las entidades de la región Soco, sin cambios. Muestra sell-in, sell-out, stock en el canal y días de inventario por país, categoría global y mes de 2025 y 2026, en real, año anterior y forecasts. Está en USD completos. El stock y los días de inventario no se suman entre meses.",
+    "preguntas_que_responde": [
+      "¿Cuánto es el sell-in y sell-out de Cono Sur?",
+      "¿Cuánto stock en canal tienen los países de Soco?",
+      "¿Cuántos días de inventario hay en Cono Sur?",
+      "¿Cómo se compara el sell-out de Cono Sur con el año anterior?",
+      "¿Dónde está el stock filtrado para Cono Sur?"
+    ],
+    "terminos_de_negocio": [
+      "Cono Sur",
+      "Soco",
+      "Argentina",
+      "Paraguay",
+      "Uruguay",
+      "stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "USD",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_os_si_so_andina_ca": {
+    "descripcion": "Es el corte de la región Andina y Centroamérica (Wacam) del archivo de stock del canal tradicional: trae solo las filas de las entidades de la región Wacam, sin cambios. Muestra sell-in, sell-out, stock en el canal y días de inventario por país, categoría global y mes de 2025 y 2026, en real, año anterior y forecasts. Está en USD completos. El stock y los días de inventario no se suman entre meses.",
+    "preguntas_que_responde": [
+      "¿Cuánto es el sell-in y sell-out de la región Andina y Centroamérica?",
+      "¿Cuánto stock en canal tienen los países de Wacam?",
+      "¿Cuántos días de inventario hay en Wacam?",
+      "¿Cómo se compara el sell-out de Wacam con el año anterior?",
+      "¿Dónde está el stock filtrado para Andina y Centroamérica?"
+    ],
+    "terminos_de_negocio": [
+      "Andina",
+      "Centroamérica",
+      "Caribe",
+      "Wacam",
+      "Perú",
+      "Colombia",
+      "Chile",
+      "stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "USD",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_mv_si_so_brasil": {
+    "descripcion": "Es el corte de Brasil del archivo de stock de forecast del canal tradicional: trae solo las filas de las entidades de la región Brazil, sin cambios. Muestra el sell-in, sell-out, stock en el canal y días de inventario proyectados para 2026 por categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Está en miles de USD, a diferencia del corte de stock real que está en USD completos.",
+    "preguntas_que_responde": [
+      "¿Cuál es el forecast de sell-in y sell-out de Brasil para 2026?",
+      "¿Cuánto stock en canal se proyecta para Brasil?",
+      "¿Cómo cambió la proyección de inventario de Brasil entre junio y septiembre?",
+      "¿Dónde está el stock de forecast filtrado para Brasil?",
+      "¿En qué unidades está el stock de forecast de Brasil?"
+    ],
+    "terminos_de_negocio": [
+      "Brasil",
+      "Brazil",
+      "forecast de stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "miles de USD",
+      "MV_3",
+      "MV_2",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_mv_si_so_mexico": {
+    "descripcion": "Es el corte de México del archivo de stock de forecast del canal tradicional: trae solo las filas de las entidades de la región Mexico, sin cambios. Muestra el sell-in, sell-out, stock en el canal y días de inventario proyectados para 2026 por categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Está en miles de USD, a diferencia del corte de stock real que está en USD completos.",
+    "preguntas_que_responde": [
+      "¿Cuál es el forecast de sell-in y sell-out de México para 2026?",
+      "¿Cuánto stock en canal se proyecta para México?",
+      "¿Cómo cambió la proyección de inventario de México entre junio y septiembre?",
+      "¿Dónde está el stock de forecast filtrado para México?",
+      "¿En qué unidades está el stock de forecast de México?"
+    ],
+    "terminos_de_negocio": [
+      "México",
+      "Mexico",
+      "forecast de stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "miles de USD",
+      "MV_3",
+      "MV_2",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_mv_si_so_cono_sur": {
+    "descripcion": "Es el corte de Cono Sur (Soco) del archivo de stock de forecast del canal tradicional: trae solo las filas de las entidades de la región Soco, sin cambios. Muestra el sell-in, sell-out, stock en el canal y días de inventario proyectados para 2026 por país, categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Está en miles de USD, a diferencia del corte de stock real que está en USD completos.",
+    "preguntas_que_responde": [
+      "¿Cuál es el forecast de sell-in y sell-out de Cono Sur para 2026?",
+      "¿Cuánto stock en canal se proyecta para los países de Soco?",
+      "¿Cómo cambió la proyección de inventario de Cono Sur entre junio y septiembre?",
+      "¿Dónde está el stock de forecast filtrado para Cono Sur?",
+      "¿En qué unidades está el stock de forecast de Cono Sur?"
+    ],
+    "terminos_de_negocio": [
+      "Cono Sur",
+      "Soco",
+      "Argentina",
+      "Paraguay",
+      "Uruguay",
+      "forecast de stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "miles de USD",
+      "corte regional",
+      "staging"
+    ]
+  },
+  "vista:staging.v_stock_mv_si_so_andina_ca": {
+    "descripcion": "Es el corte de la región Andina y Centroamérica (Wacam) del archivo de stock de forecast del canal tradicional: trae solo las filas de las entidades de la región Wacam, sin cambios. Muestra el sell-in, sell-out, stock en el canal y días de inventario proyectados para 2026 por país, categoría global y mes, en dos ciclos de forecast (junio y septiembre) y a varias tasas de cambio. Está en miles de USD, a diferencia del corte de stock real que está en USD completos.",
+    "preguntas_que_responde": [
+      "¿Cuál es el forecast de sell-in y sell-out de la región Andina y Centroamérica para 2026?",
+      "¿Cuánto stock en canal se proyecta para los países de Wacam?",
+      "¿Cómo cambió la proyección de inventario de Wacam entre junio y septiembre?",
+      "¿Dónde está el stock de forecast filtrado para Andina y Centroamérica?",
+      "¿En qué unidades está el stock de forecast de Wacam?"
+    ],
+    "terminos_de_negocio": [
+      "Andina",
+      "Centroamérica",
+      "Caribe",
+      "Wacam",
+      "Perú",
+      "Colombia",
+      "Chile",
+      "forecast de stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "canal tradicional",
+      "miles de USD",
+      "corte regional",
+      "staging"
+    ]
+  }
+}

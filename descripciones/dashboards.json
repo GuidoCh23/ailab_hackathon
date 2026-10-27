@@ -1,0 +1,62 @@
+{
+  "dashboard:powerbi.media_lab_tech_hackathon_resumen_ejecutivo": {
+    "descripcion": "Es la vista general del negocio de Sabora en LATAM: muestra cuánto se vendió (Net Revenue real en USD, sin intercompañía) y cómo va contra el año anterior y contra el presupuesto. Arriba tiene cuatro indicadores: venta neta real, variación vs año anterior, variación vs presupuesto y volumen en toneladas. Debajo, un gráfico de líneas compara mes a mes el real, el año anterior y el presupuesto; un gráfico de barras ordena las unidades de negocio (Brazil, Mexico, Wacam y Soco) por venta; y una tabla abre cada unidad de negocio por país con su venta y sus variaciones. Se puede filtrar por año, unidad de negocio y país. Es el punto de partida para gerencia o para cualquier reporte de desempeño de ventas, y sus datos salen de la vista oficial prod.v_revenue_snapshot junto con las dimensiones de cuentas, canales, entidades y tiempo.",
+    "preguntas_que_responde": [
+      "¿Cuánto vendimos en total (Net Revenue) este año?",
+      "¿Estamos creciendo frente al año anterior?",
+      "¿Estamos por encima o por debajo del presupuesto?",
+      "¿Qué unidad de negocio o país vende más?",
+      "¿Cómo evolucionó la venta mes a mes contra el presupuesto y el año pasado?"
+    ],
+    "terminos_de_negocio": [
+      "resumen ejecutivo", "executive summary", "venta neta", "net revenue", "NR real", "ventas totales",
+      "variación vs año anterior", "year over year", "variación vs presupuesto", "budget", "volumen en toneladas",
+      "unidad de negocio", "business unit", "país", "KPIs", "desempeño de ventas", "gerencia"
+    ]
+  },
+  "dashboard:powerbi.media_lab_tech_hackathon_gross_the_net": {
+    "descripcion": "Explica cómo se pasa de la venta bruta a la venta neta (Gross to Net), es decir, cuánto se pierde en descuentos en factura, trade spend y devoluciones. Arriba muestra cuatro indicadores: venta bruta (Gross Revenue), descuentos totales, venta neta real y el porcentaje de Gross to Net. Un gráfico de cascada recorre los conceptos desde la venta en mercado local y de exportación hasta el total neto; un gráfico de barras compara el porcentaje de Gross to Net por país; y una tabla detalla cada concepto de cuenta con su venta neta, la del año anterior y la variación. Se puede filtrar por año, unidad de negocio y país. Sirve a finanzas y a revenue management para entender dónde se van los descuentos y qué países ceden más margen. Usa la vista oficial prod.v_revenue_snapshot y las dimensiones de cuentas, canales, entidades y tiempo.",
+    "preguntas_que_responde": [
+      "¿Cuánto de la venta bruta se pierde en descuentos, trade spend y devoluciones?",
+      "¿Cuál es el porcentaje de Gross to Net y cómo cambia por país?",
+      "¿Qué concepto de descuento pesa más?",
+      "¿Cómo se compara la venta neta por cuenta con el año anterior?",
+      "¿Qué países tienen los descuentos más altos?"
+    ],
+    "terminos_de_negocio": [
+      "gross to net", "de venta bruta a venta neta", "gross revenue", "venta bruta", "descuentos",
+      "descuentos en factura", "trade spend", "devoluciones", "returns", "rebates", "margen", "revenue management",
+      "cascada", "waterfall", "venta neta por cuenta", "país"
+    ]
+  },
+  "dashboard:powerbi.media_lab_tech_hackathon_forecast_vs_budget": {
+    "descripcion": "Compara el último forecast del año (Latest Forecast 2026) contra el presupuesto anual, en USD, para saber si el año va a cerrar por encima o por debajo de lo planeado. Arriba tiene cinco indicadores: venta neta del forecast, venta neta del presupuesto, la brecha entre ambos, la variación en porcentaje y el avance del real contra el presupuesto. Un gráfico de líneas muestra mes a mes el real, el forecast proyectado y el presupuesto; un gráfico de columnas compara forecast y presupuesto por unidad de negocio; y una tabla detalla la brecha por unidad de negocio y país. Se puede filtrar por año, unidad de negocio y país. Es útil para planeamiento financiero y para las reuniones de cierre de forecast. Sus datos salen de la vista oficial prod.v_revenue_snapshot con las dimensiones de cuentas, canales, entidades y tiempo.",
+    "preguntas_que_responde": [
+      "¿El forecast del año está por encima o por debajo del presupuesto?",
+      "¿Cuál es la brecha entre el último forecast y el presupuesto?",
+      "¿Qué unidad de negocio o país explica la mayor brecha?",
+      "¿Qué porcentaje del presupuesto ya se cumplió con el real?",
+      "¿Cómo se ve la proyección mes a mes contra el presupuesto?"
+    ],
+    "terminos_de_negocio": [
+      "forecast vs budget", "pronóstico vs presupuesto", "latest forecast", "LF", "presupuesto", "budget", "BU",
+      "brecha", "gap", "variación vs presupuesto", "avance vs presupuesto", "proyección", "cierre de año",
+      "planeamiento financiero", "FP&A", "unidad de negocio"
+    ]
+  },
+  "dashboard:powerbi.media_lab_tech_hackathon_marcas_y_categorias": {
+    "descripcion": "Muestra la venta neta real por producto, en USD y sin intercompañía: qué categorías y qué marcas venden más y cómo crecen. Arriba tiene cuatro indicadores: venta neta real, variación vs año anterior, la marca líder y el porcentaje de venta que viene de innovación (lanzamientos). Un mapa de árbol muestra qué categoría pesa más (galletas, chocolates, bebidas en polvo, caramelos, quesos y postres); un gráfico de barras ordena las marcas por venta; y una tabla abre cada categoría en sus marcas con la venta real, la del año anterior, el volumen en toneladas y la variación. Se puede filtrar por año, unidad de negocio y país. Sirve a marketing y a los equipos de categoría para ver el portafolio. Usa la vista oficial prod.v_revenue_snapshot y las dimensiones de productos, cuentas, canales, entidades y tiempo.",
+    "preguntas_que_responde": [
+      "¿Qué categoría de producto vende más?",
+      "¿Cuál es la marca líder y cómo se ordenan las marcas por venta?",
+      "¿Qué marcas crecen o caen frente al año anterior?",
+      "¿Cuánto de la venta viene de innovación o lanzamientos?",
+      "¿Cuánto volumen en toneladas vende cada marca?"
+    ],
+    "terminos_de_negocio": [
+      "marcas", "brands", "categorías", "categories", "portafolio", "portfolio", "producto", "SKU", "marca líder",
+      "innovación", "lanzamientos", "galletas", "chocolates", "bebidas en polvo", "caramelos", "quesos y postres",
+      "volumen en toneladas", "marketing", "mix de productos"
+    ]
+  }
+}

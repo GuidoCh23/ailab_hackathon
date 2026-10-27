@@ -1,0 +1,381 @@
+{
+  "tabla:raw.fct_revenue": {
+    "descripcion": "Es la tabla central de ventas de Sabora: cada fila es un monto de venta (o de volumen) por cuenta, escenario, mes, entidad, producto, cliente y canal, tal como llega del ERP y de la herramienta de planificación. Trae el mismo monto expresado de ocho formas: en moneda local y en USD a distintas tasas de cambio (real, del año anterior, de cada escenario y de los forecasts). Mezcla todos los escenarios (real, año anterior, presupuesto y forecasts) y también filas de volumen, distinguidas por la columna Area (REVENUE o VOLUME), así que siempre hay que filtrar escenario y área antes de sumar. Sus columnas son claves numéricas: para ver nombres hay que unirla con las dimensiones o usar la vista oficial prod.v_revenue_snapshot. Cubre 2025 y 2026.",
+    "preguntas_que_responde": [
+      "¿Dónde están los datos de venta a nivel de transacción?",
+      "¿Cuánto se vendió por cuenta, mes, país, producto, cliente o canal?",
+      "¿Qué montos hay en moneda local y en USD a cada tasa de cambio?",
+      "¿Qué datos vienen del ERP y cuáles de la herramienta de planificación?",
+      "¿Dónde están los datos de volumen vendido?"
+    ],
+    "terminos_de_negocio": [
+      "tabla de hechos",
+      "fact table",
+      "ventas",
+      "revenue",
+      "transacciones",
+      "net revenue",
+      "montos",
+      "amount",
+      "moneda local",
+      "USD",
+      "tipo de cambio",
+      "exchange rate",
+      "escenario",
+      "volumen",
+      "ERP",
+      "planning tool"
+    ]
+  },
+  "tabla:raw.dim_account": {
+    "descripcion": "Es el catálogo de cuentas del estado de resultados de ventas: las 9 cuentas que usa el modelo (venta bruta local y de exportación, descuentos, trade spend, devoluciones, otros ingresos y volumen) con su jerarquía de seis niveles. Esa jerarquía permite agrupar las cuentas en Net Revenue o estadísticas, y dentro de Net Revenue en Gross Revenue, Gross to Net y otros ingresos. Es la tabla que hay que usar para saber qué cuentas suman a la venta neta o para armar un puente de venta bruta a venta neta. Viene del sistema de datos maestros (MDM).",
+    "preguntas_que_responde": [
+      "¿Qué cuentas forman la venta neta (Net Revenue)?",
+      "¿Qué cuentas son descuentos, trade spend o devoluciones?",
+      "¿Cómo se agrupan las cuentas desde el total del P&L hasta el detalle?",
+      "¿Cuál es la cuenta de volumen?",
+      "¿Qué código tiene cada cuenta contable?"
+    ],
+    "terminos_de_negocio": [
+      "cuentas",
+      "accounts",
+      "plan de cuentas",
+      "chart of accounts",
+      "P&L",
+      "jerarquía de cuentas",
+      "net revenue",
+      "gross revenue",
+      "gross to net",
+      "descuentos",
+      "trade spend",
+      "devoluciones",
+      "venta bruta",
+      "MDM"
+    ]
+  },
+  "tabla:raw.dim_scenario": {
+    "descripcion": "Lista los 6 escenarios con los que se mide la venta: real (AC), real del año anterior (PY), presupuesto anual (BU) y los forecasts de junio (JF), septiembre (SF) y el último forecast (LF). Agrupa los escenarios en datos reales, presupuesto y proyecciones, y marca cuáles son reales y cuáles de plan. Los escenarios no se deben sumar entre sí: siempre se analiza uno a la vez o se comparan. Viene de la herramienta de planificación.",
+    "preguntas_que_responde": [
+      "¿Qué escenarios existen (real, presupuesto, forecast)?",
+      "¿Qué significa AC, PY, BU, JF, SF o LF?",
+      "¿Cuál es el último forecast?",
+      "¿Qué escenarios son reales y cuáles son de plan?",
+      "¿Con qué código filtro el presupuesto?"
+    ],
+    "terminos_de_negocio": [
+      "escenarios",
+      "scenarios",
+      "real",
+      "actual",
+      "año anterior",
+      "prior year",
+      "presupuesto",
+      "budget",
+      "forecast",
+      "pronóstico",
+      "latest forecast",
+      "versión",
+      "planificación",
+      "planning tool"
+    ]
+  },
+  "tabla:raw.dim_time": {
+    "descripcion": "Es el calendario del modelo: los 24 meses de 2025 y 2026, con su código año-mes, el año y el periodo (P01 a P12). Sirve para unir la tabla de ventas con el tiempo y para filtrar o agrupar por año o mes. Viene del ERP.",
+    "preguntas_que_responde": [
+      "¿Qué meses y años cubre el modelo?",
+      "¿Cómo filtro por año o por mes?",
+      "¿Qué significa el periodo P01 a P12?",
+      "¿Cuál es el código del mes en la tabla de ventas?",
+      "¿Hay datos de 2025 y de 2026?"
+    ],
+    "terminos_de_negocio": [
+      "tiempo",
+      "calendario",
+      "calendar",
+      "fecha",
+      "date",
+      "mes",
+      "month",
+      "año",
+      "year",
+      "periodo",
+      "period",
+      "ERP"
+    ]
+  },
+  "tabla:raw.dim_entity": {
+    "descripcion": "Es el catálogo de las 22 entidades legales de Sabora en LATAM (cada empresa por país) con su jerarquía organizacional. Permite agrupar por unidad de negocio o región (Brazil, Mexico, Soco, Wacam y HQ LATAM), por subregión y por país, y dice la moneda local de cada entidad. Es la tabla que hay que usar para cualquier corte por país, región o unidad de negocio, y la que usan las vistas regionales para filtrar. Viene del sistema de datos maestros (MDM).",
+    "preguntas_que_responde": [
+      "¿Qué entidades o países tiene Sabora?",
+      "¿Qué países forman cada unidad de negocio o región?",
+      "¿En qué moneda reporta cada país?",
+      "¿Cómo filtro por país o por unidad de negocio?",
+      "¿Qué código tiene la entidad de un país?"
+    ],
+    "terminos_de_negocio": [
+      "entidades",
+      "entities",
+      "país",
+      "country",
+      "región",
+      "region",
+      "unidad de negocio",
+      "business unit",
+      "BU",
+      "sociedad",
+      "entidad legal",
+      "moneda",
+      "currency",
+      "jerarquía organizacional",
+      "LATAM",
+      "MDM"
+    ]
+  },
+  "tabla:raw.dim_product_hierarchy": {
+    "descripcion": "Es el maestro de productos: los 62 SKU de Sabora con su jerarquía completa de formato, submarca, marca, marca paraguas, segmento (mainstream o premium), subcategoría, categoría local y global, grupo y nivel superior. Las categorías son galletas, chocolates, caramelos y chicles, bebidas en polvo, y quesos y postres. Es la tabla que hay que usar para cualquier análisis por producto, marca o categoría. Viene de un archivo maestro de productos.",
+    "preguntas_que_responde": [
+      "¿Qué marcas y categorías vende Sabora?",
+      "¿A qué marca y categoría pertenece cada SKU?",
+      "¿Qué productos son premium y cuáles mainstream?",
+      "¿Cómo agrupo las ventas por categoría global?",
+      "¿Qué submarcas tiene cada marca?"
+    ],
+    "terminos_de_negocio": [
+      "productos",
+      "products",
+      "SKU",
+      "marca",
+      "brand",
+      "categoría",
+      "category",
+      "subcategoría",
+      "segmento",
+      "premium",
+      "mainstream",
+      "portafolio",
+      "portfolio",
+      "jerarquía de producto",
+      "maestro de productos"
+    ]
+  },
+  "tabla:raw.dim_customer": {
+    "descripcion": "Es el maestro de clientes: cada cliente con su jerarquía de cinco niveles, que lo agrupa en clientes externos o intercompañía, por canal (moderno, tradicional, exportación), por país y por grupo comercial. Sirve para analizar ventas por cliente, por grupo de clientes o por país del cliente. Ojo: su última carga es del 1 de agosto de 2026, bastante más antigua que el resto de tablas (octubre de 2026), así que los clientes nuevos pueden no estar. Viene de un archivo maestro de clientes.",
+    "preguntas_que_responde": [
+      "¿Qué clientes o grupos de clientes tenemos?",
+      "¿Cuánto se vende por cliente o por grupo comercial?",
+      "¿Qué clientes son del canal moderno, tradicional o de exportación?",
+      "¿Qué tan actualizado está el maestro de clientes?",
+      "¿Cómo agrupo los clientes por país?"
+    ],
+    "terminos_de_negocio": [
+      "clientes",
+      "customers",
+      "maestro de clientes",
+      "grupo de clientes",
+      "cadena",
+      "canal",
+      "moderno",
+      "tradicional",
+      "exportación",
+      "intercompañía",
+      "cuenta clave",
+      "key account",
+      "jerarquía de clientes"
+    ]
+  },
+  "tabla:raw.dim_channel": {
+    "descripcion": "Es el catálogo de los canales de venta: supermercados, hipermercados, bodegas y tiendas de barrio, mayoristas, distribuidores, farmacias, conveniencia, e-commerce, exportación, intercompañía y no asignado. Los agrupa en canal moderno, tradicional y otros, y en un nivel intermedio de tipo de canal. Es la tabla que hay que usar para cualquier corte por canal. Viene del sistema de datos maestros (MDM).",
+    "preguntas_que_responde": [
+      "¿Qué canales de venta existen?",
+      "¿Qué canales son modernos y cuáles tradicionales?",
+      "¿Cómo filtro por un canal de venta?",
+      "¿Cuánto se vende por canal?",
+      "¿Qué código tiene cada canal?"
+    ],
+    "terminos_de_negocio": [
+      "canales",
+      "channels",
+      "canal de venta",
+      "sales channel",
+      "moderno",
+      "tradicional",
+      "supermercados",
+      "mayoristas",
+      "distribuidores",
+      "e-commerce",
+      "exportación",
+      "go to market",
+      "MDM"
+    ]
+  },
+  "tabla:raw.dim_audit_trail": {
+    "descripcion": "Indica de dónde salió o cómo se ajustó cada dato de venta: carga automática del ERP, input de presupuesto, input de forecast, ajuste manual de cierre, reclasificación o asignación de servicios de HQ. Los agrupa en datos de sistema, planificación y ajustes, y marca cuáles son ajustes. Sirve para separar lo que viene del sistema de lo que fue cargado o corregido a mano. Viene de un archivo de auditoría.",
+    "preguntas_que_responde": [
+      "¿Qué parte de la venta viene del ERP y qué parte son ajustes manuales?",
+      "¿Qué tipos de carga o ajuste existen?",
+      "¿Cómo identifico los ajustes de cierre?",
+      "¿De dónde vienen los datos de presupuesto y forecast?",
+      "¿Qué datos fueron reclasificados?"
+    ],
+    "terminos_de_negocio": [
+      "auditoría",
+      "audit trail",
+      "origen del dato",
+      "ajustes",
+      "ajuste manual",
+      "reclasificación",
+      "asignación",
+      "carga ERP",
+      "input de plan",
+      "input de forecast",
+      "trazabilidad",
+      "ajuste de cierre",
+      "ajustes manuales de cierre",
+      "correcciones manuales",
+      "manual adjustments"
+    ]
+  },
+  "tabla:raw.dim_promo": {
+    "descripcion": "Indica si una venta fue promocional, no promocional o no asignada. Sirve para separar las ventas hechas con promoción de las ventas regulares. Viene del sistema de datos maestros (MDM).",
+    "preguntas_que_responde": [
+      "¿Cuánto de la venta fue con promoción?",
+      "¿Cómo separo ventas promocionales de no promocionales?",
+      "¿Qué valores tiene el indicador de promoción?",
+      "¿Qué ventas no tienen promoción asignada?",
+      "¿Qué código tiene una venta promocional?"
+    ],
+    "terminos_de_negocio": [
+      "promoción",
+      "promo",
+      "promocional",
+      "no promocional",
+      "promotional",
+      "non promotional",
+      "MDM"
+    ]
+  },
+  "tabla:raw.dim_base": {
+    "descripcion": "Clasifica la venta según su origen de negocio: base (negocio existente), innovación (productos nuevos o lanzamientos), adquisiciones y desinversiones. Sirve para medir cuánto de la venta viene de productos nuevos o de cambios en el portafolio, por ejemplo el porcentaje de innovación. Viene del sistema de datos maestros (MDM).",
+    "preguntas_que_responde": [
+      "¿Cuánto de la venta viene de innovación o lanzamientos?",
+      "¿Qué es venta base y qué es innovación?",
+      "¿Hay ventas por adquisiciones o desinversiones?",
+      "¿Cómo filtro solo el negocio base?",
+      "¿Qué código tiene la innovación?"
+    ],
+    "terminos_de_negocio": [
+      "base",
+      "innovación",
+      "innovation",
+      "lanzamientos",
+      "launches",
+      "adquisiciones",
+      "acquisitions",
+      "desinversiones",
+      "divestitures",
+      "crecimiento orgánico",
+      "MDM",
+      "productos nuevos",
+      "new products",
+      "nuevos lanzamientos",
+      "porcentaje de innovación"
+    ]
+  },
+  "tabla:raw.dim_document": {
+    "descripcion": "Es una tabla pequeña con la unidad de medida de cada registro de venta: moneda (CUR), kilos (KG) o unidades (UN). Sirve para saber si un monto es dinero o volumen físico. No trae fecha de carga ni sistema de origen.",
+    "preguntas_que_responde": [
+      "¿En qué unidad está cada registro de venta?",
+      "¿Cómo distingo montos en moneda de volúmenes en kilos o unidades?",
+      "¿Qué unidades de medida existen?",
+      "¿Qué significa CUR, KG o UN?",
+      "¿Cómo filtro solo montos en moneda?"
+    ],
+    "terminos_de_negocio": [
+      "unidad de medida",
+      "unit of measure",
+      "UOM",
+      "moneda",
+      "kilos",
+      "unidades",
+      "volumen",
+      "documento"
+    ]
+  },
+  "tabla:raw.manual_be_hq_latam": {
+    "descripcion": "Es el archivo manual de Best Estimate de HQ LATAM para 2026: la mejor estimación de gross revenue, net revenue y volumen por país, categoría global y mes. Trae cada monto en dos ciclos de forecast (MV_3 del forecast de septiembre y MV_2 del de junio) y a varias tasas de cambio (reporte, real, año anterior, forecasts y año siguiente). Ojo: los montos están en miles de USD y el volumen en toneladas, a diferencia de la tabla de ventas que está en unidades completas. Es un archivo cargado a mano, sin sistema de origen.",
+    "preguntas_que_responde": [
+      "¿Cuál es el Best Estimate de venta para 2026?",
+      "¿Cuánto se estima vender por país y categoría?",
+      "¿Cómo cambió la estimación entre el forecast de junio y el de septiembre?",
+      "¿Cuál es el estimado a distintas tasas de cambio?",
+      "¿En qué unidades está el archivo manual de HQ?"
+    ],
+    "terminos_de_negocio": [
+      "best estimate",
+      "BE",
+      "estimado",
+      "forecast manual",
+      "archivo manual",
+      "HQ LATAM",
+      "miles de USD",
+      "toneladas",
+      "gross revenue",
+      "net revenue",
+      "volumen",
+      "categoría",
+      "ronda de forecast"
+    ]
+  },
+  "tabla:raw.stock_os_si_so": {
+    "descripcion": "Muestra la cadena de abastecimiento en el canal tradicional por país, categoría global y mes de 2025 y 2026: sell-in (lo que Sabora vende a sus clientes), sell-out (lo que los clientes venden al consumidor), el stock en el canal y los días de inventario. Trae el dato real, del año anterior, de los forecasts de junio, septiembre y último, y el año anterior a tasa actual. Está en USD completos. El stock y los días de inventario no se suman entre meses: se toma el último mes o un promedio.",
+    "preguntas_que_responde": [
+      "¿Cuánto vendemos a los clientes (sell-in) y cuánto venden ellos al consumidor (sell-out)?",
+      "¿Cuánto stock hay en el canal tradicional?",
+      "¿Cuántos días de inventario tienen los clientes?",
+      "¿Cómo se compara el sell-out real con el año anterior?",
+      "¿Cómo va el stock por país y categoría?"
+    ],
+    "terminos_de_negocio": [
+      "stock",
+      "inventario",
+      "inventory",
+      "sell-in",
+      "sell-out",
+      "días de inventario",
+      "days of inventory",
+      "stock en canal",
+      "canal tradicional",
+      "abastecimiento",
+      "supply",
+      "USD",
+      "sell-in real",
+      "sell-out real",
+      "real vs año anterior",
+      "actual"
+    ]
+  },
+  "tabla:raw.stock_mv_si_so": {
+    "descripcion": "Es la versión de forecast del archivo de stock del canal tradicional para 2026: sell-in, sell-out, stock en el canal y días de inventario por país, categoría global y mes, en dos ciclos de forecast (MV_3 del forecast de septiembre y MV_2 del de junio) y a varias tasas de cambio. Ojo: a diferencia de stock_os_si_so, está en miles de USD. El stock y los días de inventario no se suman entre meses. Es un archivo cargado a mano, sin sistema de origen.",
+    "preguntas_que_responde": [
+      "¿Cuál es el forecast de sell-in y sell-out para 2026?",
+      "¿Cuánto stock en canal se proyecta por país y categoría?",
+      "¿Cómo cambió la proyección de inventario entre junio y septiembre?",
+      "¿Cuántos días de inventario se esperan?",
+      "¿En qué unidades está el archivo de stock de forecast?"
+    ],
+    "terminos_de_negocio": [
+      "stock",
+      "inventario",
+      "sell-in",
+      "sell-out",
+      "forecast de stock",
+      "días de inventario",
+      "stock en canal",
+      "canal tradicional",
+      "miles de USD",
+      "archivo manual",
+      "MV_3",
+      "MV_2"
+    ]
+  }
+}
