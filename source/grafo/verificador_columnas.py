@@ -48,12 +48,23 @@ def listar_columnas_de_recursos(texto):
 def encontrar_columnas_inventadas(respuesta):
     nombres_conocidos, valores_por_columna, todos_los_valores = leer_nombres_y_valores()
     problemas = []
-    # Filtros del tipo columna = 'valor' o columna = VALOR
-    for columna, valor in re.findall(r"`?\b([A-Za-z_]\w*)`?\s*(?:=|<>|!=)\s*'?([A-Za-z0-9_][\w &-]*?)'?(?=[`\s,;)]|$)",
-                                     respuesta):
+    # Filtros del tipo columna = 'valor' o columna = VALOR, y uniones del tipo columna = otra_columna
+    patron = r"`?\b([A-Za-z_]\w*)`?\s*(?:=|<>|!=)\s*`?('?)([A-Za-z0-9_][\w &-]*?)\2`?(?=[`\s,;)]|$)"
+    for columna, comilla, valor in re.findall(patron, respuesta):
         nombre = columna.lower()
+        otra_columna = valor.lower()
         if nombre not in nombres_conocidos:
             problemas.append(f"la columna {columna} no existe")
+        elif not comilla and otra_columna in valores_por_columna and nombre in valores_por_columna:
+            # Una union entre columnas solo sirve si comparten valores
+            if not set(valores_por_columna[nombre]) & set(valores_por_columna[otra_columna]):
+                ejemplo_uno = ", ".join(sorted(valores_por_columna[nombre].values())[:4])
+                ejemplo_dos = ", ".join(sorted(valores_por_columna[otra_columna].values())[:4])
+                problemas.append(f"la union {columna} = {valor} no coincide: {columna} tiene valores como "
+                                 f"{ejemplo_uno} y {valor} tiene valores como {ejemplo_dos}")
+        elif not comilla and (otra_columna in nombres_conocidos or valor.isalpha() and valor.islower()):
+            # Otra columna sin valores para comparar, o texto corrido como "escenario = el que quieras"
+            continue
         elif nombre in valores_por_columna and normalizar(valor) not in valores_por_columna[nombre]:
             reales = ", ".join(sorted(valores_por_columna[nombre].values())[:12])
             problemas.append(f"el valor {valor} no existe en la columna {columna}, sus valores reales son: {reales}")
