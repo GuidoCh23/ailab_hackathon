@@ -55,6 +55,9 @@ def encontrar_columnas_inventadas(respuesta):
         otra_columna = valor.lower()
         if nombre not in nombres_conocidos:
             problemas.append(f"la columna {columna} no existe")
+        elif normalizar(valor) in valores_por_columna.get(nombre, {}):
+            # Es un valor real de la columna, por ejemplo scenario_id = BU
+            continue
         elif not comilla and otra_columna in valores_por_columna and nombre in valores_por_columna:
             # Una union entre columnas solo sirve si comparten valores
             if not set(valores_por_columna[nombre]) & set(valores_por_columna[otra_columna]):
