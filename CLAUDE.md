@@ -42,6 +42,7 @@ Chatbot, run from `source/`: `streamlit run app.py` (UI), or `python -m grafo.gr
 - `agentes/`: one `create_agent` (LangChain 1.x) per agent, light model. `herramientas/`: their tools. `catalogo_cargado.py` merges `recursos_bigquery.json`, descriptions and `extras/` in memory; Buscador ranks with similarity plus a small layer adjustment (prod +0.03, adhoc -0.02) and a 0.6 threshold; Detalle reads only `extras/`.
 - Chroma: one cached `PersistentClient` behind a lock, with retries (`catalogo/base_vectorial.py`): the agents run tool calls in parallel and the chroma folder sits in OneDrive, both caused "Could not connect to tenant default_tenant". `obtener_columnas` takes a `filtro` so the Detalle agent does not exceed the per-minute input limit of the light model.
 - Orchestrator uses `json_schema` with `strict=True` (gpt-oss-120b echoed the schema without it) and falls back to responder after 3 failed attempts.
+- Groq keys: `GROQ_API_KEY`, `GROQ_API_KEY_2`, `GROQ_API_KEY_3` (the last two optional) are tried in order; `unir_con_respaldo` (with_fallbacks) for orchestrator and redactor, `ModelFallbackMiddleware` for the agents.
 - Groq free tier: every model (gpt-oss-120b, qwen) has 200k tokens per day, and one full question uses roughly 10k to 40k. Testing the agent end to end exhausts both in a few hours; for the demo either save the quota or move to Groq's paid Dev tier.
 - Still to build: Reglas, Datos and Corrector agents.
 On Windows set `PYTHONIOENCODING=utf-8` when printing descriptions (they contain characters cp1252 can't encode).

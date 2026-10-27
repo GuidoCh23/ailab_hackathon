@@ -6,8 +6,10 @@ CARPETA_PROYECTO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(CARPETA_PROYECTO, ".env"))
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-# Varias api keys separadas por coma se usan en orden cuando una se queda sin cuota
-GROQ_CLAVES = [clave.strip() for clave in os.getenv("GROQ_API_KEYS", "").split(",") if clave.strip()] or [GROQ_API_KEY]
+GROQ_API_KEY_2 = os.getenv("GROQ_API_KEY_2")
+GROQ_API_KEY_3 = os.getenv("GROQ_API_KEY_3")
+# Las api keys se usan en orden: si una se queda sin cuota sigue la siguiente
+GROQ_CLAVES = [clave.strip() for clave in [GROQ_API_KEY, GROQ_API_KEY_2, GROQ_API_KEY_3] if clave and clave.strip()]
 GROQ_MODELO_LIGERO = os.getenv("GROQ_MODEL_LIGERO", "qwen/qwen3.8-27b")
 GROQ_MODELO_POTENTE = os.getenv("GROQ_MODEL_POTENTE", "openai/gpt-oss-120b")
 
