@@ -17,6 +17,8 @@ from herramientas.herramientas_detalle import detectar_valores_mencionados, norm
 MAXIMO_DE_PASOS = 8
 CANTIDAD_DE_MENSAJES_DE_HISTORIAL = 6
 MAXIMO_VECES_POR_AGENTE = 2
+PALABRAS_EN_INGLES = {"the", "where", "which", "what", "how", "can", "find", "is", "are", "do", "does", "i", "by",
+                      "for", "of", "show", "data", "from", "dashboard"}
 # Palabras que indican una pregunta de origen o de impacto de los datos
 PALABRAS_DE_LINAJE = ["usan", "usa ", "utiliza", "afecta", "depende", "de donde sale", "origen", "alimenta",
                       "linaje", "si cambio", "si modifico", "consume"]
@@ -103,6 +105,12 @@ def armar_contexto(estado):
 
 def ultima_pregunta(mensajes):
     return next((texto for rol, texto in reversed(mensajes) if rol == "usuario"), "")
+
+
+def esta_en_ingles(pregunta):
+    # Cuenta palabras frecuentes del ingles que casi no aparecen en espanol
+    palabras = set(normalizar(pregunta).replace("?", " ").split())
+    return len(palabras & PALABRAS_EN_INGLES) >= 2
 
 
 def es_pregunta_de_linaje(pregunta):
@@ -204,6 +212,8 @@ def crear_nodo_redactor():
 
     def redactar(estado):
         contexto = armar_contexto(estado)
+        if esta_en_ingles(ultima_pregunta(estado["mensajes"])):
+            contexto += "\n\nEl usuario escribio en ingles: escribe toda la respuesta en ingles."
         mensajes = [("system", INSTRUCCIONES_REDACTOR), ("user", contexto + listar_columnas_de_recursos(contexto))]
         respuesta = modelo.invoke(mensajes).content
         # Si la respuesta usa columnas o valores que no existen, se le pide al modelo que la corrija una vez
